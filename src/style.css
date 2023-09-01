@@ -69,12 +69,21 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
+  /* max-width: 1280px; */
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  /* padding: 2rem; */
   text-align: center;
 }
-
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul,p,div {
+  padding: 0;
+  margin: 0;
+}
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -86,4 +95,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+.big_box {
+  width: 100%;
+}
+.big_box .container_box {
+  width: 1200px;
+  margin: auto;
 }
