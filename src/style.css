@@ -100,6 +100,9 @@ ul,p,div {
   width: 100%;
 }
 .big_box .container_box {
-  width: 1200px;
+  width: 80%;
   margin: auto;
+}
+.fp-watermark {
+  display: none !important;
 }

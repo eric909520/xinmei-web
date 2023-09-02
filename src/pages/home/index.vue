@@ -1,12 +1,12 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue'
-const count = ref(0)
+import Footer from "@/components/Footer.vue"
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
      credits: {
       "enabled": false,
-      "label": '',
+      "label": '1',
       "position": 'right'
     },
   }
@@ -45,6 +45,9 @@ const state = reactive({
         首页（背景图）   
         </div>          
     </div> 
+    <div class="section section7">
+      <Footer/>
+    </div>
   </fullPage >
 </div>
 
@@ -66,28 +69,31 @@ const state = reactive({
       }
       .section1 {
          background: url("../../assets/images/pc/bg1.png") no-repeat center;
-         background-size: cover;
+         background-size: 100% 100%;
       }
       .section2 {
          background: url("../../assets/images/pc/bg2.png") no-repeat center;
-         background-size: cover;
+         background-size: 100% 100%;
       }
       .section3 {
          background: url("../../assets/images/pc/bg3.png") no-repeat center;
-         background-size: cover;
+         background-size: 100% 100%;
       }
       .section4 {
          background: url("../../assets/images/pc/bg4.png") no-repeat center;
-         background-size: cover;
+         background-size: 100% 100%;
       }
       .section5 {
          background: url("../../assets/images/pc/bg5.png") no-repeat center;
-         background-size: cover;
+         background-size: 100% 100%;
       }
       .section6 {
          background: url("../../assets/images/pc/bg6.png") no-repeat center;
-         background-size: cover;
+         background-size: 100% 100%;
       } 
+      .section7 {
+         height: 400px !important;
+      }
     }
 }
 
