@@ -100,9 +100,12 @@ ul,p,div {
   width: 100%;
 }
 .big_box .container_box {
-  width: 80%;
+  width: 90%;
   margin: auto;
 }
 .fp-watermark {
   display: none !important;
+}
+.section6 {
+  height: 400px !important;
 }

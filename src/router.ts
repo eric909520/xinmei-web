@@ -1,5 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
 import Home from  "@/pages/home/index.vue"
+import Introduce from "@/pages/introduce/index.vue"
 const router = createRouter({
         history:createWebHashHistory(),
         routes:[
@@ -15,7 +16,11 @@ const router = createRouter({
                     }
                 ]
             },
-            
+            {
+                name:'introduce',
+                path:"/introduce",
+                component:Introduce
+            },
         ]
     
 })

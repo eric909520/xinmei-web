@@ -1,6 +1,8 @@
 <script setup>
-import { onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref } from 'vue'
 import Footer from "@/components/Footer.vue"
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -11,41 +13,27 @@ const state = reactive({
     },
   }
 })
+const lists = computed(()=>[
+   {title:t('sun_no_limit'),subtitle:t('no_limit_tomorrow'),btnText:t('know_xm')},
+   {title:t('sun_with'),subtitle:t('sun_road'),btnText:t('know_gfdz')},
+   {title:t('feture_solution'),subtitle:t('feture_solution_sub'),btnText:t('know_cnxt')},
+   {title:t('settle_servie'),subtitle:t('settle_servie_sub'),btnText:t('settle_servie_btn')},
+   {title:t('key_feture'),subtitle:t('key_feture_sub'),btnText:t('key_feture_btn')},
+   {title:t('create_way'),subtitle:t('create_way_sub'),btnText:t('create_way_btn')}
+])
 </script>
 
 <template>
 <div class="big_box">
-  <fullPage e class="full-page" ref="fullpage"  :options="state.options">
-    <div class="section section1">
-        <div class="one"> 
-        </div>          
-    </div>   
-    <div class="section section2">
-        <div class="one">  
-        首页（背景图）   1
-        </div>          
-    </div> 
-     <div class="section section3">
-        <div class="one">  
-        首页（背景图）   
-        </div>          
-    </div> 
-     <div class="section section4">
-        <div class="one">  
-        首页（背景图）   
-        </div>          
-    </div> 
-     <div class="section section5">
-        <div class="one">  
-        首页（背景图）   
-        </div>          
-    </div> 
+  <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+   <div v-for="(item,index) in lists" :key="index" :class="'section section'+index">
+      <div class="container">
+         <p class="title">{{item.title}}</p>
+         <p class="sub_title">{{item.subtitle}}</p>
+         <button>{{item.btnText}}</button>
+      </div>
+   </div>   
     <div class="section section6">
-        <div class="one">  
-        首页（背景图）   
-        </div>          
-    </div> 
-    <div class="section section7">
       <Footer/>
     </div>
   </fullPage >
@@ -57,41 +45,90 @@ const state = reactive({
 <style scoped lang="scss">
 .big_box {
     width: 100%;
-    p {
-        color: red;
-        font-size: 14px;
-    }
     .full-page {
       width: 100%;
       .section {
         width: 100%;
         height: 100%;
+        .container {
+         width: 1200px;
+         margin: auto;
+         display: flex;
+         flex-direction: column;
+         // justify-content: center;
+         align-items: flex-start;
+         .title {
+            font-size: 50px;
+            color: #fff;
+         }
+         .sub_title {
+            font-size: 16px;
+            color: #393C41;
+            margin-top: 30px;
+            margin-bottom: 195px;
+         }
+         button {
+            width: 260px;
+            height: 45px;
+            opacity: 0.95;
+            background: #FFFFFF;
+            border-radius: 4px;
+            color: #333333;
+            font-size: 16px;
+            outline: none;
+            border: none;
+            &:hover {
+               background: #22AB38;
+               color: #fff;
+            }
+         }
+        }
       }
-      .section1 {
+      .section0 {
          background: url("../../assets/images/pc/bg1.png") no-repeat center;
          background-size: 100% 100%;
       }
-      .section2 {
+      .section1 {
          background: url("../../assets/images/pc/bg2.png") no-repeat center;
          background-size: 100% 100%;
+         .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
       }
-      .section3 {
+      .section2 {
          background: url("../../assets/images/pc/bg3.png") no-repeat center;
          background-size: 100% 100%;
+          .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
       }
-      .section4 {
+      .section3 {
          background: url("../../assets/images/pc/bg4.png") no-repeat center;
          background-size: 100% 100%;
+          .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
       }
-      .section5 {
+      .section4 {
          background: url("../../assets/images/pc/bg5.png") no-repeat center;
          background-size: 100% 100%;
       }
-      .section6 {
+      .section5 {
          background: url("../../assets/images/pc/bg6.png") no-repeat center;
          background-size: 100% 100%;
+         .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
       } 
-      .section7 {
+      .section6 {
          height: 400px !important;
       }
     }

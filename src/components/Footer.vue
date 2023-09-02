@@ -56,7 +56,7 @@ const lists = computed(()=>[
     {   name:t('about'),
         url:'/',
         list:[
-                {name:t('componany_controducation'),url:'/'},
+                {name:t('componany_controducation'),url:'/introduce'},
                 {name:t('all_world'),url:'/'},
                 {name:t('news_center'),url:'/'}
             ]
