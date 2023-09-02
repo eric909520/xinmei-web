@@ -22,7 +22,7 @@ const state = reactive({
     </div>   
     <div class="section section2">
         <div class="one">  
-        首页（背景图）   
+        首页（背景图）   1
         </div>          
     </div> 
      <div class="section section3">
