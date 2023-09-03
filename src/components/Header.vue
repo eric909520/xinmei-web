@@ -7,8 +7,21 @@ const { t } = useI18n()
 const { locale } = useI18n()
 const router = useRouter()
 const headerMenu = computed(()=>[
-    {name:t('about'),toUrl:'/',child:[{name:t('componany_controducation'),url:'/introduce'},{name:t('all_world'),url:'/'},{name:t('news_center'),url:'/'}]},
-    {name:t('product'),toUrl:'/',child:[{name:t('guangfu_power'),url:'/'},{name:t('power_system'),url:'/'}]},
+    {
+        name:t('about'),
+        toUrl:'/',
+        child:[
+            {name:t('componany_controducation'),url:'/introduce'},
+            {name:t('all_world'),url:'/global'},
+            {name:t('news_center'),url:'/news'}]},
+    {
+        name:t('product'),
+        toUrl:'/',
+        child:[
+            {name:t('guangfu_power'),url:'/'},
+            {name:t('power_system'),url:'/'}
+            ]
+    },
     {name:t('service'),toUrl:'/'},
     {name:t('download'),toUrl:'/'},
     {name:t('concact'),toUrl:'/'}
