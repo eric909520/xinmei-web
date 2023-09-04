@@ -19,7 +19,7 @@ const headerMenu = computed(()=>[
         url:'/gfdz',
         child:[
             {name:t('guangfu_power'),url:'/gfdz'},
-            {name:t('power_system'),url:'/'}
+            {name:t('power_system'),url:'/cnsystem'}
             ]
     },
     {name:t('service'),url:'/'},
