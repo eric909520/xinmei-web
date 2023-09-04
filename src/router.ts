@@ -4,6 +4,7 @@ import Introduce from "@/pages/introduce/index.vue"
 import Global from "@/pages/global/index.vue"
 import News from "@/pages/news/index.vue"
 import newsDetails from "@/pages/news/details.vue"
+import Gfdz from "@/pages/gfdz/index.vue"
 const router = createRouter({
         history:createWebHashHistory(),
         routes:[
@@ -38,6 +39,11 @@ const router = createRouter({
                 name:'news-details',
                 path:"/news-details",
                 component:newsDetails
+            },
+            {
+                name:'gfdz',
+                path:"/gfdz",
+                component:Gfdz
             },
         ]
     

@@ -17,6 +17,7 @@ const state = reactive({
     },
   }
 })
+const fullpage = ref(null)
 const partenerList = ref([
     {img:Partener1,id:1},
     {img:Partener2,id:2},
@@ -24,6 +25,9 @@ const partenerList = ref([
     {img:Partener4,id:4},
     {img:Partener5,id:5}
 ])
+onMounted(()=>{
+   fullpage.value.api.moveTo(1)
+})
 const { t } = useI18n()
 </script>
 <template>

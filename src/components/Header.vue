@@ -9,22 +9,22 @@ const router = useRouter()
 const headerMenu = computed(()=>[
     {
         name:t('about'),
-        toUrl:'/',
+        url:'/introduce',
         child:[
             {name:t('componany_controducation'),url:'/introduce'},
             {name:t('all_world'),url:'/global'},
             {name:t('news_center'),url:'/news'}]},
     {
         name:t('product'),
-        toUrl:'/',
+        url:'/gfdz',
         child:[
-            {name:t('guangfu_power'),url:'/'},
+            {name:t('guangfu_power'),url:'/gfdz'},
             {name:t('power_system'),url:'/'}
             ]
     },
-    {name:t('service'),toUrl:'/'},
-    {name:t('download'),toUrl:'/'},
-    {name:t('concact'),toUrl:'/'}
+    {name:t('service'),url:'/'},
+    {name:t('download'),url:'/'},
+    {name:t('concact'),url:'/'}
 ])
 const lang = ref('');
 const langList = ref([
@@ -65,7 +65,7 @@ const toPage = (item:any)=>{
                         v-if="item.child && item.child.length"
                     >
                         <template #reference>
-                            <p>{{item.name}}</p>
+                            <p @click="toPage(item)">{{item.name}}</p>
                         </template>
                         <div class="language">
                             <p v-for="(ite,indx) in item.child" 
@@ -77,7 +77,7 @@ const toPage = (item:any)=>{
                             >{{ite.name}}</p>
                         </div>
                     </el-popover>
-                    <p v-else>{{item.name}}</p>
+                    <p v-else @click="toPage(item)">{{item.name}}</p>
                 </li>
             </ul>
         </div>

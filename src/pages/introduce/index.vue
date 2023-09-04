@@ -8,6 +8,7 @@ import Intro3 from "@/assets/images/pc/intro_3.svg"
 import Intro4 from "@/assets/images/pc/intro_4.svg"
 import Intro5 from "@/assets/images/pc/intro_5.svg"
 const { t } = useI18n()
+const fullpage = ref(null)
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -17,6 +18,9 @@ const state = reactive({
       "position": 'right'
     },
   }
+})
+onMounted(()=>{
+   fullpage.value.api.moveTo(1)
 })
 const lists = computed(()=>[
    {Mname:t('forward'),Sname:t('high_product'),img:Intro1},

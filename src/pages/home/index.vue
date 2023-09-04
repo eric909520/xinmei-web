@@ -3,6 +3,7 @@ import { computed, onMounted, reactive, ref } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
+const fullpage = ref(null)
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -21,6 +22,9 @@ const lists = computed(()=>[
    {title:t('key_feture'),subtitle:t('key_feture_sub'),btnText:t('key_feture_btn')},
    {title:t('create_way'),subtitle:t('create_way_sub'),btnText:t('create_way_btn')}
 ])
+onMounted(()=>{
+   fullpage.value.api.moveTo(1)
+})
 </script>
 
 <template>

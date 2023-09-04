@@ -62,7 +62,7 @@ const lists = computed(()=>[
             ]
     },
     {   name:t('product'),
-        url:'/',
+        url:'/gfdz',
         list:[
                 {name:t('guangfu_power'),url:'/'},
                 {name:t('power_system'),url:'/'},

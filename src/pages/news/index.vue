@@ -58,7 +58,10 @@ const lists = [
 const toDetails = (item)=>{
     router.push('/news-details')
 }
-
+const fullpage = ref(null)
+onMounted(()=>{
+   fullpage.value.api.moveTo(1)
+})
 </script>
 
 <template>

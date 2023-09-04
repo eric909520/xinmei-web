@@ -14,6 +14,10 @@ const state = reactive({
     },
   }
 })
+const fullpage = ref(null)
+onMounted(()=>{
+   fullpage.value.api.moveTo(1)
+})
 const lists = [
     {
         img:Img,
