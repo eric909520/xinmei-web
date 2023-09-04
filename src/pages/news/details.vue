@@ -3,7 +3,6 @@ import { computed, onMounted, reactive, ref } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import Img from "@/assets/images/pc/news.png"
-import{ElPagination} from "element-plus"
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -160,6 +159,7 @@ const { t } = useI18n()
         padding-top: 50px;
         padding-bottom: 20px;
         justify-content: flex-start;
+         background: #F1F3F4;
         // height: 150%;
          ::v-deep {
             .fp-overflow {

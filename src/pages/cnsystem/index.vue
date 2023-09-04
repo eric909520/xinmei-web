@@ -23,6 +23,15 @@ const introList = [
     {title:t('watch_day'),subTitle:t('watch_day_subtitle'),icon:Icon2},
     {title:t('soft_control'),subTitle:t('soft_control_subtitle'),icon:Icon3},
 ]
+const productList = [
+    {title:t('product_special1'),content:t('product_special1_content')},
+    {title:t('product_special2'),content:t('product_special2_content')},
+    {title:t('product_special3'),content:t('product_special3_content')},
+    {title:t('product_special4'),content:t('product_special4_content')},
+    {title:t('product_special5'),content:t('product_special5_content')},
+    {title:t('product_special6'),content:t('product_special6_content')},
+    {title:t('product_special7'),content:t('product_special7_content')}
+]
 const toDetails = (item)=>{
     router.push('/news-details')
 }
@@ -51,8 +60,20 @@ onMounted(()=>{
             </div>
         </div>
         <div class="section section1">
-            <div class="container">
-               
+            <div class="container_center">
+               <div class="left">
+                    <img src="@/assets/images/pc/cnproduct.png" alt="">
+               </div>
+               <div class="right">
+                    <p class="title">{{t('product_special')}}</p>
+                    <p class="subtitle">{{t('product_special_content')}}</p>
+                    <ul>
+                        <li v-for="(item,index) in productList" :key="index">
+                            <p class="title_li">{{item.title}}</p>
+                            <p class="content">{{item.content}}</p>
+                        </li>
+                    </ul>
+               </div>
             </div>
         </div>
         <div class="section section2">
@@ -94,7 +115,65 @@ onMounted(()=>{
                 color: #fff;
                 line-height: 32px;
             }
-
+            
+        }
+        .container_center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 190px;
+            padding: 0 20px;
+            .left {
+                img {
+                    width: 673px;
+                    height: 407px;
+                }
+            }
+            .right {
+                width: 540px;
+                .title {
+                    font-size: 50px;
+                    color: #FFFFFF;
+                    margin-bottom: 20px;
+                    text-align: left;
+                }
+                .subtitle {
+                    font-size: 16px;
+                    color: #FFFFFF;
+                    text-align: left;
+                    opacity: 0.9;
+                }
+                ul {
+                    margin-top: 30px;
+                    li {
+                        margin-bottom: 10px;
+                        position: relative;
+                        p {
+                            text-align: left;
+                        }
+                        .title_li {
+                            font-size: 18px;
+                            color: #fff;
+                        }
+                        .content {
+                            opacity: 0.9;
+                            color: #fff;
+                            font-weight: 400;
+                            font-size: 16px;
+                        }
+                        &::before {
+                            content:"";
+                            width: 6px;
+                            height: 6px;
+                            border-radius: 3px;
+                            background: #fff;
+                            position: absolute;
+                            top: 10px;
+                            left: -15px;
+                        }
+                    }
+                }
+            }
         }
         .bottom_list {
             display: flex;

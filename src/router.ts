@@ -6,6 +6,9 @@ import News from "@/pages/news/index.vue"
 import newsDetails from "@/pages/news/details.vue"
 import Gfdz from "@/pages/gfdz/index.vue"
 import Cnsystem from "@/pages/cnsystem/index.vue"
+import Service from "@/pages/service/index.vue"
+import Download from "@/pages/download/index.vue"
+import Concact from "@/pages/concact/index.vue"
 const router = createRouter({
         history:createWebHashHistory(),
         routes:[
@@ -51,6 +54,22 @@ const router = createRouter({
                 path:"/cnsystem",
                 component:Cnsystem
             },
+            {
+                name:'service',
+                path:"/service",
+                component:Service
+            },
+            {
+                name:'download',
+                path:"/download",
+                component:Download
+            },
+            {
+                name:'concact',
+                path:"/concact",
+                component:Concact
+            },
+            
         ]
     
 })

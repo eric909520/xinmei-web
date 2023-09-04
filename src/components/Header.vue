@@ -22,9 +22,9 @@ const headerMenu = computed(()=>[
             {name:t('power_system'),url:'/cnsystem'}
             ]
     },
-    {name:t('service'),url:'/'},
-    {name:t('download'),url:'/'},
-    {name:t('concact'),url:'/'}
+    {name:t('service'),url:'/service'},
+    {name:t('download'),url:'/download'},
+    {name:t('concact'),url:'/concact'}
 ])
 const lang = ref('');
 const langList = ref([

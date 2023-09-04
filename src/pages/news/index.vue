@@ -182,6 +182,7 @@ onMounted(()=>{
         padding-top: 50px;
         padding-bottom: 20px;
         justify-content: flex-start;
+        background: #F1F3F4;
         // height: 150%;
          ::v-deep {
             .fp-overflow {
