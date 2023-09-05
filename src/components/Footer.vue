@@ -23,12 +23,13 @@
                 </div>
                 <div class="right">
                     <ul>
-                        <li v-for="(item,index) in lists" :key="index">
+                        <li v-for="(item,index) in lists" :key="index" @click="toUrl(item.url)">
                             <p class="title">{{item.name}}</p>
                             <p class="sub_title" 
                                 v-if="item.list && item.list.length" 
                                 v-for="(it,inx) in item.list" 
                                 :key="'s'+index"
+                                @click="toUrl(it.url)"
                             >{{it.name}}</p>
                         </li>
                     </ul>
@@ -46,6 +47,7 @@ import { useI18n } from 'vue-i18n'
 import location from "@/assets/images/pc/location.svg"
 import phone from "@/assets/images/pc/phone.svg"
 import mail from "@/assets/images/pc/mail.svg"
+import { useRouter } from "vue-router";
 const { t } = useI18n()
 const informatinos = computed(()=>[
     {name:t('company_address'),img:location},
@@ -72,6 +74,10 @@ const lists = computed(()=>[
     {name:t('download'),url:'/download'},
     {name:t('concact'),url:'/concact'},
 ])
+const router = useRouter()
+const toUrl = (url)=>{
+     router.push(url)
+}
 </script>
 <style lang="scss" scoped>
 .big_box {
