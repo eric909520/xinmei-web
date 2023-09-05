@@ -72,7 +72,7 @@ const { t } = useI18n()
          padding-top: 50px;
       }
       .section1 {
-        padding-top: 50px;
+        padding-top: 120px;
         padding-bottom: 20px;
         justify-content: flex-start;
          background: #F1F3F4;
