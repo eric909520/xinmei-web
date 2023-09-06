@@ -33,12 +33,17 @@ onMounted(()=>{
   <fullPage  class="full-page" ref="fullpage"  :options="state.options">
    <div v-for="(item,index) in lists" :key="index" :class="'section section'+index">
       <div class="container">
-         <p class="title">{{item.title}}</p>
-         <p class="sub_title">{{item.subtitle}}</p>
+         <div>
+            <p class="title">{{item.title}}</p>
+            <p class="sub_title">{{item.subtitle}}</p>
+         </div>
          <button>{{item.btnText}}</button>
       </div>
-   </div>   
-    <div class="section section6">
+   </div>
+    <div class="section section7" v-if="isMobile">
+      <Footer/>
+    </div>
+    <div class="section section6" v-else>
       <Footer/>
     </div>
   </fullPage >
@@ -141,7 +146,31 @@ onMounted(()=>{
 .m_big_box {
    .full-page {
       .section {
-
+         ::v-deep {
+            justify-content: space-between;
+            padding-top: 140px;
+            padding-bottom: 70px;
+            .fp-overflow {
+               height: 100%;
+               .container {
+                  height: 100%;
+                  width: 100%;
+                  align-items: center;
+                  justify-content: space-between;
+                  .title {
+                     font-size: 30px;
+                     width: 300px;
+                  }
+                  .sub_title {
+                     font-size: 12px;
+                     color: #fff;
+                     width: 276px;
+                     margin: 0 auto;
+                     margin-top: 25px;
+                  }
+               }
+            }
+         }
       }
       .section0 {
          background: url("../../assets/images/mobile/bg1.png") no-repeat center;
@@ -187,8 +216,11 @@ onMounted(()=>{
             }
          }
       } 
-      .section6 {
-         height: 400px !important;
+      .section7 {
+         padding-top: 50px;
+         background: #000;
+         justify-content: center;
+         padding-bottom: 0;
       }
    }
 }
