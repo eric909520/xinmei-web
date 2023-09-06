@@ -1,9 +1,10 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref, inject  } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 const fullpage = ref(null)
+const isMobile = inject('isMobile')
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -23,12 +24,12 @@ const lists = computed(()=>[
    {title:t('create_way'),subtitle:t('create_way_sub'),btnText:t('create_way_btn')}
 ])
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
+   fullpage.value.api.moveTo(1);
 })
 </script>
 
 <template>
-<div class="big_box">
+<div :class="isMobile ? 'big_box m_big_box':'big_box'">
   <fullPage  class="full-page" ref="fullpage"  :options="state.options">
    <div v-for="(item,index) in lists" :key="index" :class="'section section'+index">
       <div class="container">
@@ -137,5 +138,58 @@ onMounted(()=>{
       }
     }
 }
+.m_big_box {
+   .full-page {
+      .section {
 
+      }
+      .section0 {
+         background: url("../../assets/images/mobile/bg1.png") no-repeat center;
+         background-size: 100% 100%;
+      }
+      .section1 {
+         background: url("../../assets/images/mobile/bg2.png") no-repeat center;
+         background-size: 100% 100%;
+         .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
+      }
+      .section2 {
+         background: url("../../assets/images/mobile/bg3.png") no-repeat center;
+         background-size: 100% 100%;
+          .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
+      }
+      .section3 {
+         background: url("../../assets/images/mobile/bg4.png") no-repeat center;
+         background-size: 100% 100%;
+          .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
+      }
+      .section4 {
+         background: url("../../assets/images/mobile/bg5.png") no-repeat center;
+         background-size: 100% 100%;
+      }
+      .section5 {
+         background: url("../../assets/images/mobile/bg6.png") no-repeat center;
+         background-size: 100% 100%;
+         .container {
+            .sub_title {
+               color: #fff;
+            }
+         }
+      } 
+      .section6 {
+         height: 400px !important;
+      }
+   }
+}
 </style>

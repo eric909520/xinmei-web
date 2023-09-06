@@ -123,5 +123,8 @@ export default {
     other_company3_address: '天津市河西区南京路39号天津国际贸易中心B座',
     address: "地址",
     email: "邮箱",
-    phone: "电话"
+    phone: "电话",
+    language: '语言',
+    confirm: '确定',
+    cancel: '取消'
 }
