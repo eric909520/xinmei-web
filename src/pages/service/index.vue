@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 const state = reactive({
@@ -13,6 +13,7 @@ const state = reactive({
   }
 })
 const fullpage = ref(null)
+const isMobile = inject('isMobile')
 onMounted(()=>{
    fullpage.value.api.moveTo(1)
 })
@@ -20,7 +21,7 @@ const { t } = useI18n()
 </script>
 
 <template>
- <div class="big_box">
+ <div :class="isMobile ? 'big_box m_big_box':'big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -45,7 +46,17 @@ const { t } = useI18n()
                     <img src="@/assets/images/pc/service_2.png" alt="">
                 </div>
             </div>
-            <div class="middle">
+            <div v-if="isMobile" class="middle">
+                 <div class="left">
+                    <p class="title">{{t('hot_line')}}</p>
+                    <p class="subtitle">{{t('hot_line_content1')}}</p>
+                    <p class="subtitle">{{t('hot_line_content2')}}</p>
+                </div>
+                <div class="right">
+                    <img src="@/assets/images/pc/service_3.png" alt="">
+                </div>
+            </div>
+            <div class="middle" v-else>
                 <div class="right">
                     <img src="@/assets/images/pc/service_3.png" alt="">
                 </div>
@@ -63,13 +74,20 @@ const { t } = useI18n()
                     <p class="content">{{t('sys_authority_content1')}}</p>
                     <p class="content">{{t('sys_authority_content2')}}</p>
                     <p class="content">{{t('sys_authority_content3')}}</p>
-                    <img src="@/assets/images/pc/authority.png" alt="" style="width:1200px;height:auto;margin-top:40px">
+                    <div v-if="isMobile" class="authority">
+                        <img src="@/assets/images/mobile/authority.png" alt="" >
+                        <img src="@/assets/images/mobile/authority2.png" alt="">
+                    </div>
+                    <img src="@/assets/images/pc/authority.png" v-else alt="" style="width:1200px;height:auto;margin-top:40px">
                 </div>
             </div>
         </div>
-        <div class="section section6">
+         <div class="section section7" v-if="isMobile">
             <Footer/>
-        </div>   
+        </div>
+        <div class="section section6" v-else>
+            <Footer/>
+        </div> 
     </fullPage>
  </div>
 </template>
@@ -146,8 +164,8 @@ const { t } = useI18n()
          padding-top: 120px;
       }
       .section1 {
-        padding-top: 50px;
-        padding-bottom: 20px;
+        padding-top: 70px;
+        padding-bottom: 40px;
         justify-content: flex-start;
          background: #F1F3F4;
         // height: 150%;
@@ -159,7 +177,6 @@ const { t } = useI18n()
             .fp-overflow::-webkit-scrollbar {
                 display: none; /* Chrome Safari */
                 }
-
                 .fp-overflow {
                 scrollbar-width: none; /* firefox */
                 -ms-overflow-style: none; /* IE 10+ */
@@ -168,6 +185,97 @@ const { t } = useI18n()
                 }
          }
       }
+    }
+}
+.m_big_box {
+    .full-page {
+        .section {
+            .container {
+                align-items:center;
+                width: 100%;
+                .title {
+                    color: #fff;
+                    font-size: 30px;
+                }
+                .content {
+                    width: 315px;
+                    color: #fff;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+        .section0 {
+             background: url("../../assets/images/mobile/service-1.png") no-repeat center;
+             background-size: 100% 100%;
+        }
+        .section1 {
+            .top {
+                width: calc(100% - 20px);
+                margin: 0 auto;
+                .title {
+                    font-size: 30px;
+                    color: #171A20;
+                    margin-bottom: 10px;
+                }
+                .subtitle {
+                    width: 318px;
+                }
+                img {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+            .middle {
+                width: calc(100% - 20px);
+                margin: 0 auto;
+                flex-direction: column;
+                align-items: center;
+                .left {
+                    .title {
+                        font-size: 30px;
+                        color: #171A20;
+                        margin-bottom: 10px;
+                    }
+                    .subtitle {
+                        width: 318px;
+                    }
+                }
+                .right {
+                    img {
+                        width: 100%;
+                        height:  auto;
+                    }
+                }
+            }
+        }
+        .section2 {
+             background: url("../../assets/images/mobile/service-2.png") no-repeat center;
+             background-size: 100% 100%;
+             .container {
+                .title {
+                    color: #fff;
+                    font-size: 30px;
+                }
+                .content {
+                    width: 100%;
+                    font-size: 12px;
+                    margin-bottom: 0;
+                    line-height: 24px;
+                }
+                .authority {
+                    margin-top: 15px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 10px;
+                    img {
+                        width: 281px;
+                        height: auto;
+                    }
+                }
+             }
+        }
     }
 }
 </style>
