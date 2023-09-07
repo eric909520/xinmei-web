@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import companyImg1 from "@/assets/images/pc/concact_1.svg"
@@ -16,6 +16,7 @@ const state = reactive({
   }
 })
 const fullpage = ref(null)
+const isMobile = inject('isMobile')
 onMounted(()=>{
    fullpage.value.api.moveTo(1)
 })
@@ -29,7 +30,7 @@ const { t } = useI18n()
 </script>
 
 <template>
- <div class="big_box">
+ <div :class="isMobile ? 'big_box m_big_box':'big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -53,9 +54,12 @@ const { t } = useI18n()
               </ul>
             </div>
         </div>
-        <div class="section section6">
+         <div class="section section7" v-if="isMobile">
             <Footer/>
-        </div>   
+        </div>
+        <div class="section section6" v-else>
+            <Footer/>
+        </div>  
     </fullPage>
  </div>
 </template>
@@ -180,5 +184,78 @@ const { t } = useI18n()
          }
       }
     }
+}
+.m_big_box {
+  .full-page {
+    .section {
+      .container {
+        align-items:center;
+        width: 100%;
+        .title {
+            color: #fff;
+            font-size: 30px;
+        }
+        .content {
+            width: 315px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+      }
+    }
+    .section0 {
+      background: url("../../assets/images/mobile/concact.png") no-repeat center;
+      background-size: 100% 100%;
+    }
+    .section1 {
+      padding-top: 70px;
+      .company_list {
+        width: calc(100% - 40px);
+        ul {
+          li {
+            padding: 20px;
+            &:nth-child(1) {
+                img {
+                  width: 35px;
+                  height: 31px;
+                }
+            }
+            &:nth-child(2) {
+              img {
+                width: 33px;
+                height: 29px;
+              }
+            }
+            &:nth-child(3) {
+              img {
+                width: 29px;
+                height: 30px;
+              }
+            }
+            &:nth-child(4) {
+              img {
+                width: 29px;
+                height: 30px;
+              }
+            }
+            .company {
+                font-size: 20px;
+                color: #393C41;
+                margin: 10px 0;
+              }
+              .name {
+                color: #333333;
+                font-size: 14px;
+                margin-bottom: 10px;
+              }
+              .address {
+                font-size: 12px;
+                color: #333333;
+                margin-bottom: 5px;
+              }
+          }
+        }
+      }
+    }
+  }
 }
 </style>

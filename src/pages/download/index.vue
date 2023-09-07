@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import{ElTable,ElTableColumn} from "element-plus"
 import { useI18n } from 'vue-i18n'
@@ -15,6 +15,7 @@ const state = reactive({
 })
 const { t } = useI18n()
 const fullpage = ref(null)
+const isMobile = inject('isMobile')
 let materialSpanArr = ref([])
 let materialpos = ref(null)
 const tableData = ref([
@@ -102,7 +103,7 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
 </script>
 
 <template>
- <div class="big_box">
+ <div :class="isMobile ? 'big_box m_big_box':'big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -121,10 +122,10 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" width="180" />
+                <el-table-column prop="number" :label="t('table_number')" />
                 <el-table-column prop="name" :label="t('material_name')" />
-                <el-table-column prop="type"  :label="t('material_type')" />
-                <el-table-column prop="use"  :label="t('material_use')" />
+                <el-table-column prop="type"  :label="t('material_type')" v-if="!isMobile"/>
+                <el-table-column prop="use"  :label="t('material_use')" v-if="!isMobile"/>
               </el-table>
             </div>
             <div class="table_box add_margin">
@@ -135,16 +136,19 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" width="180" />
+                <el-table-column prop="number" :label="t('table_number')" />
                 <el-table-column prop="name" :label="t('material_name')" />
-                <el-table-column prop="type"  :label="t('material_type')" />
-                <el-table-column prop="use"  :label="t('material_use')" />
+                <el-table-column prop="type"  :label="t('material_type')" v-if="!isMobile"/>
+                <el-table-column prop="use"  :label="t('material_use')" v-if="!isMobile"/>
               </el-table>
             </div>
         </div>
-        <div class="section section6">
+         <div class="section section7" v-if="isMobile">
             <Footer/>
-        </div>   
+        </div>
+        <div class="section section6" v-else>
+            <Footer/>
+        </div>  
     </fullPage>
  </div>
 </template>
@@ -216,5 +220,44 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
          }
       }
     }
+}
+.m_big_box {
+  .full-page {
+    .section {
+      .container {
+        align-items:center;
+        width: 100%;
+        .title {
+            color: #fff;
+            font-size: 30px;
+        }
+        .content {
+            width: 315px;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+      }
+      .table_box {
+          width: calc(100% - 40px);
+          margin: 0 auto;
+          .title {
+            font-size: 30px;
+            color: #393C41;
+            margin-bottom: 20px;
+          }
+      }
+      .add_margin {
+        margin-top: 50px;
+      }
+    }
+    .section0 {
+      background: url("../../assets/images/mobile/download.png") no-repeat center;
+      background-size: cover;
+    }
+    .section1 {
+      padding-top: 70px;
+      padding-bottom: 40px;
+    }
+  }
 }
 </style>
