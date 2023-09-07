@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
@@ -8,6 +8,7 @@ import Icon2 from "@/assets/images/pc/cnicon_2.svg"
 import Icon3 from "@/assets/images/pc/cnicon_3.svg"
 const { t } = useI18n()
 const router = useRouter()
+const isMobile = inject('isMobile')
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -42,7 +43,7 @@ onMounted(()=>{
 </script>
 
 <template>
- <div class="big_box">
+ <div :class="isMobile ? 'big_box m_big_box':'big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -60,7 +61,22 @@ onMounted(()=>{
             </div>
         </div>
         <div class="section section1">
-            <div class="container_center">
+            <div class="container_center1" v-if="isMobile">
+                <p class="title">{{t('product_special')}}</p>
+                <p class="subtitle">{{t('product_special_content')}}</p>
+               <div class="top">
+                    <img src="@/assets/images/mobile/cnproduct.png" alt="">
+               </div>
+               <div class="bottom">
+                    <ul>
+                        <li v-for="(item,index) in productList" :key="index">
+                            <p class="title_li">{{item.title}}</p>
+                            <p class="content">{{item.content}}</p>
+                        </li>
+                    </ul>
+               </div>
+            </div>
+            <div class="container_center" v-else>
                <div class="left">
                     <img src="@/assets/images/pc/cnproduct.png" alt="">
                </div>
@@ -84,9 +100,12 @@ onMounted(()=>{
                 </div>
             </div>
         </div>
-        <div class="section section6">
+         <div class="section section7" v-if="isMobile">
             <Footer/>
-        </div>   
+        </div>
+        <div class="section section6" v-else>
+            <Footer/>
+        </div>  
     </fullPage>
  </div>
 </template>
@@ -244,6 +263,133 @@ onMounted(()=>{
             }
          }
       }
+    }
+}
+.m_big_box {
+    .full-page {
+        .section {
+            .container {
+                align-items:center;
+                width: 100%;
+                .title {
+                    color: #fff;
+                    font-size: 30px;
+                }
+                .content {
+                    width: 315px;
+                    color: #fff;
+                    margin-bottom: 15px;
+                }
+            }
+            .bottom_list {
+                gap:30px;
+                .content {
+                    .title {
+                        font-size: 12px;
+                        margin-top: 10px;
+                    }
+                    .name {
+                        font-size: 12px;
+                    }
+                    &:nth-child(1) {
+                        img {
+                            width: 25px;
+                            height: 26px;
+                        }
+                    }
+                    &:nth-child(2) {
+                        img {
+                            width: 22px;
+                            height: 25px;
+                        }
+                    }
+                    &:nth-child(3) {
+                        img {
+                            width: 19px;
+                            height: 26px;
+                        }
+                    }
+                }
+            }
+            .container_center1 {
+                .title {
+                    font-size: 30px;
+                    color: #fff;
+                    margin-bottom: 15px;
+                }
+                .subtitle {
+                    font-size: 16px;
+                    color: #fff;
+                    line-height: 32px;
+                    width: 318px;
+                    margin: 0 auto;
+                }
+                .top{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    img {
+                         width:214px;
+                        height: 129px;
+                    }
+                }
+                .bottom {
+                    ul {
+                    width: calc(100% - 60px);
+                    margin: 0 auto;
+                    li {
+                        margin-bottom: 25px;
+                        p {
+                            text-align: left;
+                        }
+                        .title_li {
+                            font-size: 16px;
+                            color: #fff;
+                            font-weight: 700;
+                            margin-bottom: 10px;
+                            position: relative;
+                            padding-left: 5px;
+                            &::before {
+                                content: "";
+                                width: 6px;
+                                height: 6px;
+                                border-radius: 3px;
+                                background: #fff;
+                                position: absolute;
+                                top: 50%;
+                                transform: translateY(-50%);
+                                left: -10px;
+                            }
+                        }
+                        .content {
+                            color: #fff;
+                            font-size: 12px;
+                        }
+                    }
+                    }
+                }
+            }
+        }
+        .section0 {
+            background: url("../../assets/images/mobile/cn-1.png") no-repeat center;
+        }
+        .section1 {
+            padding-top: 70px;
+        }
+        .section2 {
+            background: url("../../assets/images/mobile/cn-2.png") no-repeat center;
+            .container {
+                .title {
+                    color: #171A20;
+                }
+                .content {
+                    color: #393C41;
+                }
+            }
+        }
     }
 }
 </style>

@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { ref,computed,inject } from 'vue'
+import { ref,computed,inject, watch } from 'vue'
 import {ElPopover} from "element-plus"
 import { useI18n } from 'vue-i18n'
-import { useRouter } from "vue-router";
+import { useRouter,useRoute } from "vue-router";
 const { t } = useI18n()
 const { locale } = useI18n()
 const isMobile = inject('isMobile')
 const router = useRouter()
+const route = useRoute()
 let showLang =ref(false)
 let menuShow = ref(false)
 const headerMenu = computed(()=>[
@@ -38,6 +39,7 @@ const langList = ref([
     {name:'简体中文',value:'zh',text:'简体中文'},
     {name:'English',value:'en',text:'English'}
 ])
+const changeList = ['news-details']
 lang.value = localStorage.getItem('lang') || 'zh'
 const showLange = ref(false)
 const showChose = ()=>{
@@ -58,6 +60,7 @@ const showLangePicker = ()=>{
 const onCancel = () =>{
     showLang.value = false
 }
+let changeHeader = ref(false)
 const onConfirm = (val:any)=>{
     let value = val.selectedValues[0];
     locale.value = value;
@@ -75,21 +78,27 @@ const menuTourl = (item:any)=>{
     menuShow.value = false
     router.push(item.url)
 }
+watch(route, (newValue, oldValue) => {
+  changeHeader.value = changeList.includes(newValue.name)
+});
 </script>
 
 <template>
-  <div class="big_box">
+  <div class="big_box" :style="changeHeader ? 'background:#F1F3F4':''">
     <div v-if="isMobile" class="m_container_box">
         <div class="left" @click="router.push('/')">
-            <img src="@/assets/images/mobile/logo.png" alt="">
+            <img src="@/assets/images/mobile/logo_top.png" alt="" v-if="changeHeader">
+            <img src="@/assets/images/mobile/logo.png" alt="" v-else>
         </div>
         <div class="right">
             <div class="first" @click="showLangePicker">
-                <img src="@/assets/images/mobile/language.png" alt="">
-                <p>{{langList.find(item=>item.value == lang).name}}</p>
+                <img src="@/assets/images/mobile/menu_lang.png" alt="" v-if="changeHeader">
+                <img src="@/assets/images/mobile/language.png" alt="" v-else>
+                <p :style="changeHeader ? 'color:#333333':''">{{langList.find(item=>item.value == lang).name}}</p>
             </div>
             <div class="second" @click="showMenu">
-                <img src="@/assets/images/mobile/menu.png" alt="">
+                <img src="@/assets/images/mobile/menu_black.png" alt="" v-if="changeHeader">
+                <img src="@/assets/images/mobile/menu.png" alt="" v-else>
             </div>
         </div>
     </div>

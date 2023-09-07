@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref, inject} from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import Img from "@/assets/images/pc/news.png"
@@ -7,6 +7,7 @@ import{ElPagination} from "element-plus"
 import { useRouter } from 'vue-router'
 const { t } = useI18n()
 const router = useRouter()
+const isMobile = inject('isMobile')
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -65,7 +66,7 @@ onMounted(()=>{
 </script>
 
 <template>
- <div class="big_box">
+ <div :class="isMobile ? 'big_box m_big_box':'big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -85,12 +86,19 @@ onMounted(()=>{
                         <p class="time">{{item.time}}</p>
                     </li>
                 </ul>
-                <el-pagination layout="prev, pager, next" :total="50" />
+                <div class="load_more" v-if="isMobile">
+                    <p>{{t('load_more')}}</p>
+                    <img src="@/assets/images/mobile/load_more.svg" alt="">
+                </div>
+                <el-pagination v-else layout="prev, pager, next" :total="50" />
             </div>
         </div>
-        <div class="section section6">
+         <div class="section section7" v-if="isMobile">
+                <Footer/>
+        </div>
+        <div class="section section6" v-else>
             <Footer/>
-        </div>   
+        </div>
     </fullPage>
  </div>
 </template>
@@ -187,7 +195,6 @@ onMounted(()=>{
          ::v-deep {
             .fp-overflow {
                height: 100%;
-            //    height: 150%;
             }
             .fp-overflow::-webkit-scrollbar {
                 display: none; /* Chrome Safari */
@@ -201,6 +208,57 @@ onMounted(()=>{
                 }
          }
       }
+    }
+}
+.m_big_box {
+    .full-page {
+        .section {
+            .container {
+                justify-content: center;
+                width: 100%;
+                gap: 42px;
+                .title {
+                    color: #fff;
+                    font-size: 30px;
+                }
+                .content {
+                    width: 315px;
+                    color: #fff;
+                    margin-bottom: 15px;
+                }
+            }
+            .news_list {
+                width: calc(100% - 48px);
+                margin: 0 auto;
+                li {
+                    width: 100% !important;
+                    margin-right: 0 !important;
+                    img {
+                        width: 100% !important;
+                    }
+                }
+                .load_more {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 10px;
+                    p {
+                        font-size: 12px;
+                        color: #393C41;
+                    }
+                    img {
+                        width: 9px;
+                        height: 3px;
+                    }
+                }
+            }
+        }
+        .section0 {
+            background: url("../../assets/images/mobile/news.png") no-repeat center;
+            background-size: 100% 100%;
+            justify-content: flex-start;
+            padding-top: 90px;
+        }
     }
 }
 </style>

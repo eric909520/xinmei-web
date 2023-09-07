@@ -1,10 +1,11 @@
 <script setup>
-import { computed, onMounted, reactive, ref } from 'vue'
+import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 const { t } = useI18n()
 const router = useRouter()
+const isMobile = inject('isMobile')
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -56,7 +57,7 @@ onMounted(()=>{
 </script>
 
 <template>
- <div class="big_box">
+ <div :class="isMobile ? 'big_box m_big_box':'big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -82,9 +83,12 @@ onMounted(()=>{
                 </ul>
             </div>
         </div>
-        <div class="section section6">
+         <div class="section section7" v-if="isMobile">
             <Footer/>
-        </div>   
+        </div>
+        <div class="section section6" v-else>
+            <Footer/>
+        </div>
     </fullPage>
  </div>
 </template>
@@ -215,6 +219,95 @@ onMounted(()=>{
             }
          }
       }
+    }
+}
+.m_big_box {
+    .full-page {
+        .section {
+            .container {
+                align-items:center;
+                width: 100%;
+                .title {
+                    color: #fff;
+                    font-size: 30px;
+                }
+                .content {
+                    width: 315px;
+                    color: #fff;
+                    margin-bottom: 15px;
+                }
+            }
+            .bottom_list {
+               width: 100%;
+               justify-content: center;
+               gap: 30px;
+               .content {
+                    .title {
+                        font-size: 18px;
+                        margin-bottom: 10px;
+                    }
+                    .name {
+                        font-size: 14px;
+                    }
+               }
+            }
+            .news_list {
+                width: 100%;
+                ul {
+                    width: 100%;
+                    li {
+                        width: 50%;
+                        height: 33.333%;
+                         .title {
+                            font-size: 18px;
+                            color: #FFFFFF;
+                        }
+                        .content {
+                            font-size: 12px;
+                            color: #FFFFFF;
+                            width: 147px;
+                            margin-top: 10px;
+                        }
+                        &:nth-child(1) {
+                            background: url("@/assets/images/mobile/dz-1.png") no-repeat center;
+                            background-size: cover;
+                        }
+                        &:nth-child(2) {
+                            background: url("@/assets/images/mobile/dz-2.png") no-repeat center;
+                            background-size: cover;
+                        }
+                        &:nth-child(3) {
+                            background: url("@/assets/images/mobile/dz-3.png") no-repeat center;
+                            background-size: cover;
+                        }
+                        &:nth-child(4) {
+                            background: url("@/assets/images/mobile/dz-4.png") no-repeat center;
+                            background-size: cover;
+                        }
+                        &:nth-child(5) {
+                            background: url("@/assets/images/mobile/dz-5.png") no-repeat center;
+                            background-size: cover;
+                        }
+                        &:nth-child(6) {
+                            background: url("@/assets/images/mobile/dz-6.png") no-repeat center;
+                            background-size: cover;
+                        }
+                    }
+                }
+            }
+        }
+        .section0 {
+            background: url("../../assets/images/mobile/bg4-1.png") no-repeat center;
+            background-size: 100% 100%;
+            justify-content: space-between;
+            padding-top: 70px;
+            padding-bottom: 30px;
+            ::v-deep {
+                .fp-overflow {
+                height: 100%;
+                }
+            }
+        }
     }
 }
 </style>
