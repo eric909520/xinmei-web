@@ -2,9 +2,13 @@
 import { computed, onMounted, reactive, ref, inject  } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
+import {getAuth} from "@/api/index.js"
 const { t } = useI18n()
 const fullpage = ref(null)
 const isMobile = inject('isMobile')
+const getImg = async()=>{
+   let res = await getAuth()
+}
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -25,6 +29,7 @@ const lists = computed(()=>[
 ])
 onMounted(()=>{
    fullpage.value.api.moveTo(1);
+   getImg()
 })
 </script>
 

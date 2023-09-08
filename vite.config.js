@@ -8,16 +8,28 @@ export default defineConfig({
       '@': '/src'
     }
   },
-  css:{
+  server: {
+    host: '0.0.0.0',
+    port: 7000,
+    cors: true,
+    proxy: {
+      "/api": {
+        target: 'http://10.15.25.143:81',
+        // target: "http://192.168.3.217:81",
+        changeOrigin: true
+      },
+    }
+  },
+  css: {
     // 此代码为适配移动端px2rem
-      postcss: {
-        plugins: [
-          postCssPxToRem({
-            rootValue: 37.5, // 1rem的大小
-            propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
-          })
-        ]
-      }
+    postcss: {
+      plugins: [
+        postCssPxToRem({
+          rootValue: 37.5, // 1rem的大小
+          propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
+        })
+      ]
+    }
   },
   plugins: [vue()],
 })
