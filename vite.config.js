@@ -12,11 +12,12 @@ export default defineConfig({
     host: '0.0.0.0',
     port: 7000,
     cors: true,
+    https: true,
     proxy: {
       "/api": {
         target: 'http://10.15.25.143:81',
-        // target: "http://192.168.3.217:81",
-        changeOrigin: true
+        changeOrigin: true,
+        secure: false
       },
     }
   },
