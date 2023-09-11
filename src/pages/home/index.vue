@@ -72,7 +72,7 @@ onMounted(()=>{
         height: 100%;
         .container {
          width: 1200px;
-         margin: auto;
+         margin:0 auto;
          display: flex;
          flex-direction: column;
          // justify-content: center;
@@ -86,6 +86,7 @@ onMounted(()=>{
             color: #393C41;
             margin-top: 30px;
             margin-bottom: 195px;
+            text-align: left;
          }
          button {
             width: 260px;
@@ -138,6 +139,12 @@ onMounted(()=>{
       .section4 {
          background: url("../../assets/images/pc/bg5.png") no-repeat center;
          background-size: 100% 100%;
+         .container {
+            .title {
+               color: #393C41;
+            }
+
+         }
       }
       .section5 {
          background: url("../../assets/images/pc/bg6.png") no-repeat center;
