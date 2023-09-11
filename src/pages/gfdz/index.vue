@@ -57,7 +57,7 @@ onMounted(()=>{
 </script>
 
 <template>
- <div :class="isMobile ? 'big_box m_big_box':'big_box'">
+ <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
         <div class="section section0">
             <div class="container">
@@ -94,7 +94,7 @@ onMounted(()=>{
 </template>
 
 <style scoped lang="scss">
-.big_box {
+.norem-big_box {
     width: 100%;
     .full-page {
       width: 100%;

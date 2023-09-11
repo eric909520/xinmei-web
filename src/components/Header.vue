@@ -102,7 +102,7 @@ watch(route, (newValue, oldValue) => {
             </div>
         </div>
     </div>
-    <div class="container_box" v-else>
+    <div class="norem-container_box" v-else>
         <div class="left_logo" @click="router.push('/')">
             <img src="@/assets/images/pc/logo.png" alt="">
         </div>
@@ -111,7 +111,7 @@ watch(route, (newValue, oldValue) => {
                 <li v-for="(item,index) in headerMenu" :key="index">
                     <el-popover
                         placement="bottom"
-                        popper-class="top_popper"
+                        popper-class="norem-top_popper"
                         :width="200"
                         trigger="hover"
                         :visible="showChils"
@@ -152,7 +152,9 @@ watch(route, (newValue, oldValue) => {
                         :key="index"
                         style="height: 36px;
                                 line-height: 36px;
-                                cursor: pointer;"
+                                cursor: pointer;
+                                font-size:14px
+                                "
                         @click="choseLang(item.value)"
                     >{{item.name}}</p>
                 </div>
@@ -215,11 +217,13 @@ watch(route, (newValue, oldValue) => {
     top: 0;
     left: 0;
     z-index: 999;
-    .container_box {
+    .norem-container_box {
         height: 100%;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        width: 90%;
+        margin: 0 auto;
         .left_logo {
             cursor: pointer;
             img {
@@ -305,11 +309,11 @@ watch(route, (newValue, oldValue) => {
         
     }
 }
-.top_popper {
+.norem-top_popper {
     .language {
         p {
             padding-left: 10px;
-            font-size: 14px;
+            font-size: 16px;
             &:hover {
                 color: #22AB38;
             }   

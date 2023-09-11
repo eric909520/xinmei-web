@@ -18,7 +18,9 @@
             </div>
             <div class="bottom">
                 <div class="left">
-                    <div class="er_box"></div>
+                    <div class="er_box">
+                        <img src="@/assets/images/pc/ercode.jpg" alt="">
+                    </div>
                     <p class="follow_us">{{t('follow_us')}}</p>
                 </div>
                 <div class="right">
@@ -32,14 +34,16 @@
             </div>
             <p class="support">{{t('support')}}</p>
         </div>
-        <div class="container_box" v-else>
+        <div class="norem-container_box" v-else>
             <div class="top">
                 <div class="left">
                     <div class="left_top">
                         <img src="@/assets/images/pc/footer_logo.png" alt="">
                         <div class="top_bot">
                             <div class="bot_left">
-                                <div class="er_box"></div>
+                                <div class="er_box">
+                                    <img src="@/assets/images/pc/ercode.jpg" alt="">
+                                </div>
                                 <p class="follow_us">{{t('follow_us')}}</p>
                             </div>
                             <div class="bot_right">
@@ -86,7 +90,7 @@ const activeNames = ref(['1'])
 const activeNames2 = ref(['1'])
 const informatinos = computed(()=>[
     {name:t('company_address'),img:location},
-    {name:'010-88886666',img:phone},
+    {name:'0516-83006977',img:phone},
     {name:'contact@sunmae.cn',img:mail},
 ])
 const lists = computed(()=>[
@@ -121,21 +125,25 @@ const toUrl = (url)=>{
     background: #000;
     padding-bottom: 35px;
     box-sizing: border-box;
-    .container_box {
+    .norem-container_box {
+        width: 90%;
+        margin: 0 auto;
         .top {
             display: flex;
             justify-content: space-between;
             // align-items: center;
             .left {
-                width: 426px;
+                // width: 526px;
                 margin-top: 57px;
                 .left_top {
                     width: 100%;
                     height: 52px;
+                    text-align: left;
                     img {
                         margin-bottom: 35px;
-                        width: 100%;
-                        height: 100%;
+                        width: 426px;
+                        height: auto;
+                        
                     }
                 }
                 .top_bot {
@@ -146,6 +154,10 @@ const toUrl = (url)=>{
                             width: 90px;
                             height: 90px;
                             background: #fff;
+                            img {
+                                width: 100%;
+                                height: 100%;
+                            }
                        } 
                        p {
                         font-size: 14px;
@@ -265,6 +277,10 @@ const toUrl = (url)=>{
                     width: 90px;
                     height: 90px;
                     background: #fff;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
                 } 
                 p {
                     font-size: 14px;

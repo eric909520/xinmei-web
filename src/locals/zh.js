@@ -6,7 +6,7 @@ export default {
     concact: '联系我们',
     support: "技术支持：江苏雪球软件",
     follow_us: "关注我们",
-    company_address: "江苏省徐州市云龙区万达广场3-911",
+    company_address: "江苏省徐州市经济开发区龙湖东路6号金龙湖创新谷",
     componany_controducation: "公司简介",
     all_world: "全球分布",
     news_center: '新闻中心',

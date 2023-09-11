@@ -26,8 +26,9 @@ export default defineConfig({
     postcss: {
       plugins: [
         postCssPxToRem({
-          rootValue: 57.5, // 1rem的大小
+          rootValue: 37.5, // 1rem的大小
           propList: ['*'], // 需要转换的属性，这里选择全部都进行转换
+          selectorBlackList: ['norem', 'el']
         })
       ]
     }
