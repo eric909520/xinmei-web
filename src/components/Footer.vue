@@ -165,6 +165,7 @@ const toUrl = (url)=>{
                        }
                        .follow_us {
                         margin-top: 15px;
+                        text-align: center;
                        }
                     }
                     .bot_right {

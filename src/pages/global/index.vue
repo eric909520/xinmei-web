@@ -68,7 +68,7 @@ const { t } = useI18n()
     </div>
 </template>
 <style lang="scss" scoped>
-.big_box {
+.norem-big_box {
     width: 100%;
     .full-page {
       width: 100%;

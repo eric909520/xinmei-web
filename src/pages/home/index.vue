@@ -108,6 +108,9 @@ onMounted(()=>{
       .section0 {
          background: url("../../assets/images/pc/bg1.png") no-repeat center;
          background-size: 100% 100%;
+         .container {
+            margin-bottom: 100px;
+         }
       }
       .section1 {
          background: url("../../assets/images/pc/bg2.png") no-repeat center;
