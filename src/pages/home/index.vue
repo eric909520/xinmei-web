@@ -159,7 +159,7 @@ onMounted(()=>{
          }
       } 
       .section6 {
-         height: 400px !important;
+         height: 340px !important;
       }
     }
 }

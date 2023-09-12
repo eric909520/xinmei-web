@@ -123,7 +123,7 @@ const toUrl = (url)=>{
     width: 100%;
     // height: 400px;
     background: #000;
-    padding-bottom: 35px;
+    padding-bottom: 25px;
     box-sizing: border-box;
     .norem-container_box {
         width: 90%;
@@ -134,7 +134,7 @@ const toUrl = (url)=>{
             // align-items: center;
             .left {
                 // width: 526px;
-                margin-top: 57px;
+                margin-top: 25px;
                 .left_top {
                     width: 100%;
                     height: 52px;
@@ -193,7 +193,7 @@ const toUrl = (url)=>{
                 }
             }
             .right {
-                margin-top:84px;
+                margin-top:35px;
                 ul {
                     display: flex;
                     gap: 40px;

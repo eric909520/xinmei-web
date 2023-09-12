@@ -167,6 +167,9 @@ const { t } = useI18n()
         justify-content: flex-start;
          padding-top: 120px;
       }
+    .section6 {
+        height: 340px !important;
+      }
     }
 }
 .m_big_box {

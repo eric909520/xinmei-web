@@ -219,6 +219,9 @@ onMounted(()=>{
             }
          }
       }
+      .section6 {
+        height: 340px !important;
+      }
     }
 }
 .m_big_box {

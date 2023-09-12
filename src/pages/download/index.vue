@@ -219,6 +219,9 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 }
          }
       }
+      .section6 {
+        height: 340px !important;
+      }
     }
 }
 .m_big_box {

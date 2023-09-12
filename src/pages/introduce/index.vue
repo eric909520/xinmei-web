@@ -213,6 +213,9 @@ const exploreList = computed(()=>[
          background: url("../../assets/images/pc/bg2_3.png") no-repeat center;
          background-size: 100% 100%;
       }
+      .section6 {
+        height: 340px !important;
+      }
     }
 }
 .m_big_box {
