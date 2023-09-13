@@ -89,8 +89,9 @@ onMounted(()=>{
             text-align: left;
          }
          button {
-            width: 260px;
-            height: 45px;
+            // width: 260px;
+            // height: 45px;
+            padding:15px 98px;
             opacity: 0.95;
             background: #FFFFFF;
             border-radius: 4px;
@@ -187,6 +188,9 @@ onMounted(()=>{
                      width: 276px;
                      margin: 0 auto;
                      margin-top: 25px;
+                  }
+                  button {
+                     padding: 15px 40px;
                   }
                }
             }

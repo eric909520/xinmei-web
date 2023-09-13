@@ -30,7 +30,7 @@ export default {
     create_way: "Communication and Cooperation: Connecting the Road to Energy Innovation",
     create_way_sub: "The professional team provides you with personalized services. You can contact us through the following methods",
     create_way_btn: "contact us",
-    ten_year: 'Over ten years'
+    ten_year: 'Over ten years',
     experise: "experience",
     one_wish: "a vision",
     Mwall: 'Megawatt',
@@ -56,7 +56,7 @@ export default {
     investment_value_content: "Multiple benefits such as electricity discounts, electricity sales income, policy subsidies, and carbon trading, high profits and high returns",
     safe_reliable: "Safe and reliable",
     safe_reliable_content: "Contribute tax revenue to the local government, provide employment for local people, and bring land income to local people",
-    power_rationing: "Easing power cuts"
+    power_rationing: "Easing power cuts",
     power_rationing_content: "While alleviating the power shortage problem of high energy-consuming enterprises, it also effectively avoids the resource waste and power limitation problems that centralized power stations ofen  face",
     emission_reduction: "Environmental protection and emission reduction",
     emission_reduction_content: "1MW distributed power generation is about 1.1 million kilowatt-hours per year, which is equivalent to saving 350 tons of standard coal and reducing carbon dioxide emissions by 1,000 tons.",
