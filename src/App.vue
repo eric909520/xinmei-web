@@ -1,10 +1,11 @@
 <script setup>
 import Header from "@/components/Header.vue"
 import Footer from "@/components/Footer.vue"
+import { provide,ref } from "vue"
 </script>
 
 <template>
-  <Header/>
+  <Header />
     <router-view />
   <!-- <Footer/> -->
 </template>

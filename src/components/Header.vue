@@ -50,6 +50,7 @@ const choseLang =(val:string)=>{
     localStorage.setItem('lang', val);
     showLange.value = false
     lang.value = val
+    router.go(0)
 }
 const toPage = (item:any)=>{
     router.push(item.url)
@@ -67,6 +68,7 @@ const onConfirm = (val:any)=>{
     localStorage.setItem('lang', value);
     showLang.value = false
     lang.value = value
+    router.go(0)
 }
 const showMenu = ()=>{
     menuShow.value = true
@@ -112,9 +114,8 @@ watch(route, (newValue, oldValue) => {
                     <el-popover
                         placement="bottom"
                         popper-class="norem-top_popper"
-                        :width="200"
+                        :width="lang == 'en' && index == 1 ? 250 : 200"
                         trigger="hover"
-                        :visible="showChils"
                         v-if="item.child && item.child.length"
                     >
                         <template #reference>
