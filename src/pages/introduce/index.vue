@@ -1,5 +1,5 @@
 <script setup>
-import { computed, onMounted, reactive, ref,inject } from 'vue'
+import { computed, onMounted, reactive, ref,inject, watch } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import Intro1 from "@/assets/images/pc/intro_1.svg"
@@ -23,6 +23,7 @@ const state = reactive({
 onMounted(()=>{
    fullpage.value.api.moveTo(1)
 })
+const lang = localStorage.getItem('lang')
 const lists = computed(()=>[
    {Mname:t('forward'),Sname:t('high_product'),img:Intro1},
    {Mname:t('one_body'),Sname:t('poduct_map'),img:Intro2},
@@ -46,7 +47,7 @@ const exploreList = computed(()=>[
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
   <fullPage  class="full-page" ref="fullpage"  :options="state.options">
    <div class="section section0">
-      <div class="container">
+      <div :class="lang == 'en' ? 'container en-container':'container'">
          <div class="first">
             <p class="title">{{t('ten_year')}}</p>
             <p>{{t('experise')}}</p>
@@ -62,7 +63,7 @@ const exploreList = computed(()=>[
       </div>
    </div>   
    <div class="section section1">
-      <div class="controduce">
+      <div :class="lang == 'en' ? 'en-controduce controduce':'controduce'">
          <div>
             <p class="title">{{t('company_intro')}}</p>
             <p class="content">{{t('first_intro')}}</p>
@@ -288,6 +289,10 @@ const exploreList = computed(()=>[
          background-size: 100% 100%;
          justify-content: flex-end;
          padding-bottom: 90px;
+         .en-container {
+            justify-content: space-around;
+            gap: inherit;
+         }
       }
       .section1 {
          background: url("../../assets/images/mobile/bg2-2.png") no-repeat center;
@@ -298,6 +303,20 @@ const exploreList = computed(()=>[
          ::v-deep {
             .fp-overflow {
                height: 100%;
+            }
+         }
+         .en-controduce {
+            .title {
+                margin-bottom: 20px;
+            }
+            .content {
+               margin-bottom: 8px;
+               line-height: 18px;
+            }
+            .list {
+               p {
+                  text-align: center;
+               }
             }
          }
       }
