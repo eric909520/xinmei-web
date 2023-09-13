@@ -271,7 +271,7 @@ const toUrl = (url)=>{
             display: flex;
             // justify-content: space-between;
             align-items: center;
-            padding-left: 20px;
+            padding:0 20px;
             margin-top: 40px;
             .left {
                 .er_box {
@@ -286,6 +286,7 @@ const toUrl = (url)=>{
                 p {
                     font-size: 14px;
                     color: #fff;
+                    
                 }
             }
             .right {
@@ -305,6 +306,7 @@ const toUrl = (url)=>{
                         p {
                             font-size: 14px;
                             color: #FFFFFF;
+                            text-align: left;
                         }
                         &:last-child {
                             margin-bottom: 0;

@@ -169,7 +169,7 @@ onMounted(()=>{
       .section {
          ::v-deep {
             justify-content: space-between;
-            padding-top: 140px;
+            padding-top: 110px;
             padding-bottom: 70px;
             .fp-overflow {
                height: 100%;
@@ -178,6 +178,7 @@ onMounted(()=>{
                   width: 100%;
                   align-items: center;
                   justify-content: space-between;
+                  margin-bottom: 0;
                   .title {
                      font-size: 30px;
                      width: 300px;

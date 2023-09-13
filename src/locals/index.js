@@ -6,7 +6,7 @@ const messages = {
     en,
     zh,
 }
-const language = (navigator.language || 'en').toLocaleLowerCase() // 这是获取浏览器的语言;
+const language = localStorage.getItem('lang') || (navigator.language || 'en').toLocaleLowerCase() // 这是获取浏览器的语言;
 localStorage.setItem('lang', language.split('-')[0] || 'zh')
 const i18n = createI18n({
     legacy: false,
