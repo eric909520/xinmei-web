@@ -18,7 +18,6 @@ const state = reactive({
 const fullpage = ref(null)
 const isMobile = inject('isMobile')
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
 })
 const companyList = computed(()=>[
   {company:t('main_company'),img:companyImg1,name:t('main_company_name'),address:t('main_company_address'),mail:"sunmae2023@163.com",phone:'0516-83006977 / +86 13705139861'},
@@ -31,12 +30,12 @@ const { t } = useI18n()
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-    <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+    <div class="full-page">
         <div class="section section0">
             <div class="container">
                 <div>
-                    <p class="title">{{t('concact')}}</p>
-                    <p class="content">{{t('concact_desc')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('concact')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('concact_desc')}}</p>
                 </div>
             </div>
         </div>
@@ -44,23 +43,17 @@ const { t } = useI18n()
             <div class="company_list">
               <ul>
                 <li v-for="(item,index) in companyList" :key="index">
-                  <img :src="item.img" alt="">
-                  <p class="company">{{item.company}}</p>
-                  <p class="name">{{item.name}}</p>
-                  <p class="address">{{t('address')}}:{{item.address}}</p>
-                  <p class="address">{{t('email')}}:{{item.mail}}</p>
-                  <p class="address">{{t('phone')}}:{{item.phone}}</p>
+                  <img :src="item.img" alt="" data-aos="flip-left">
+                  <p class="company" data-aos="fade-down">{{item.company}}</p>
+                  <p class="name" data-aos="fade-down">{{item.name}}</p>
+                  <p class="address" data-aos="fade-up">{{t('address')}}:{{item.address}}</p>
+                  <p class="address" data-aos="fade-up">{{t('email')}}:{{item.mail}}</p>
+                  <p class="address" data-aos="fade-up">{{t('phone')}}:{{item.phone}}</p>
                 </li>
               </ul>
             </div>
         </div>
-         <div class="section section7" v-if="isMobile">
-            <Footer/>
-        </div>
-        <div class="section section6" v-else>
-            <Footer/>
-        </div>  
-    </fullPage>
+    </div>
  </div>
 </template>
 
@@ -159,29 +152,14 @@ const { t } = useI18n()
          background-size: 100% 100%;
          justify-content: flex-start;
          padding-top: 120px;
+         box-sizing: border-box
       }
       .section1 {
         padding-top: 120px;
         padding-bottom: 20px;
         justify-content: flex-start;
          background: #F1F3F4;
-        // height: 150%;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-            //    height: 150%;
-            }
-            .fp-overflow::-webkit-scrollbar {
-                display: none; /* Chrome Safari */
-                }
-
-                .fp-overflow {
-                scrollbar-width: none; /* firefox */
-                -ms-overflow-style: none; /* IE 10+ */
-                overflow-x: hidden;
-                overflow-y: auto;
-                }
-         }
+        height: auto !important;
       }
       .section6 {
         height: 340px !important;
@@ -211,6 +189,7 @@ const { t } = useI18n()
     }
     .section1 {
       padding-top: 70px;
+      box-sizing: border-box;
       .company_list {
         width: calc(100% - 40px);
         ul {

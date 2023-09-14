@@ -7,7 +7,7 @@ import { provide,ref } from "vue"
 <template>
   <Header />
     <router-view />
-  <!-- <Footer/> -->
+  <Footer/>
 </template>
 
 <style scoped>

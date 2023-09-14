@@ -59,20 +59,20 @@ const lists = [
 const toDetails = (item)=>{
     router.push('/news-details')
 }
-const fullpage = ref(null)
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
 })
 </script>
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+    </fullPage>
+    <div class="full-page">
         <div class="section section0">
             <div class="container">
                 <div>
-                    <p class="title">{{t('news_center')}}</p>
-                    <p class="content">{{t('news_desc')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('news_center')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('news_desc')}}</p>
                 </div>
             </div>
         </div>
@@ -80,9 +80,9 @@ onMounted(()=>{
             <div class="news_list">
                 <ul>
                     <li v-for="(item,index) in lists" :key="index" @click="toDetails(item)">
-                        <img :src="item.img" alt="">
-                        <p class="title">{{item.title}}</p>
-                        <p class="content">{{item.content}}</p>
+                        <img :src="item.img" alt="" data-aos="flip-left">
+                        <p class="title" data-aos="fade-up">{{item.title}}</p>
+                        <p class="content" data-aos="fade-up">{{item.content}}</p>
                         <p class="time">{{item.time}}</p>
                     </li>
                 </ul>
@@ -93,13 +93,7 @@ onMounted(()=>{
                 <el-pagination v-else layout="prev, pager, next" :total="50" />
             </div>
         </div>
-         <div class="section section7" v-if="isMobile">
-                <Footer/>
-        </div>
-        <div class="section section6" v-else>
-            <Footer/>
-        </div>
-    </fullPage>
+    </div>
  </div>
 </template>
 
@@ -191,22 +185,9 @@ onMounted(()=>{
         padding-bottom: 20px;
         justify-content: flex-start;
         background: #F1F3F4;
+        box-sizing: border-box;
         // height: 150%;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-            }
-            .fp-overflow::-webkit-scrollbar {
-                display: none; /* Chrome Safari */
-                }
-
-                .fp-overflow {
-                scrollbar-width: none; /* firefox */
-                -ms-overflow-style: none; /* IE 10+ */
-                overflow-x: hidden;
-                overflow-y: auto;
-                }
-         }
+        height: auto !important;
       }
       .section6 {
         height: 340px !important;
@@ -261,6 +242,7 @@ onMounted(()=>{
             background-size: 100% 100%;
             justify-content: flex-start;
             padding-top: 90px;
+            box-sizing: border-box;
         }
     }
 }

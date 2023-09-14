@@ -36,24 +36,22 @@ const productList = [
 const toDetails = (item)=>{
     router.push('/news-details')
 }
-const fullpage = ref(null)
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
 })
 </script>
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-    <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+    <div class="full-page">
         <div class="section section0">
             <div class="container">
                 <div>
-                    <p class="title">{{t('power_system')}}</p>
-                    <p class="content">{{t('power_system_intro')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('power_system')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('power_system_intro')}}</p>
                 </div>
             </div>
             <div class="bottom_list">
-                <div class="content" v-for="(item,index) in introList" :key="index">
+                <div class="content" v-for="(item,index) in introList" :key="index" data-aos="flip-left">
                     <img :src="item.icon" alt="">
                     <p class="title">{{item.title}}</p>
                     <p class="name">{{item.subTitle}}</p>
@@ -62,14 +60,14 @@ onMounted(()=>{
         </div>
         <div class="section section1">
             <div class="container_center1" v-if="isMobile">
-                <p class="title">{{t('product_special')}}</p>
-                <p class="subtitle">{{t('product_special_content')}}</p>
+                <p class="title" data-aos="fade-down">{{t('product_special')}}</p>
+                <p class="subtitle" data-aos="fade-up">{{t('product_special_content')}}</p>
                <div class="top">
-                    <img src="@/assets/images/mobile/cnproduct.png" alt="">
+                    <img src="@/assets/images/mobile/cnproduct.png" alt="" data-aos="fade-up">
                </div>
                <div class="bottom">
                     <ul>
-                        <li v-for="(item,index) in productList" :key="index">
+                        <li v-for="(item,index) in productList" :key="index" data-aos="fade-left">
                             <p class="title_li">{{item.title}}</p>
                             <p class="content">{{item.content}}</p>
                         </li>
@@ -78,13 +76,13 @@ onMounted(()=>{
             </div>
             <div class="container_center" v-else>
                <div class="left">
-                    <img src="@/assets/images/pc/cnproduct.png" alt="">
+                    <img src="@/assets/images/pc/cnproduct.png" alt="" data-aos="fade-right">
                </div>
                <div class="right">
-                    <p class="title">{{t('product_special')}}</p>
-                    <p class="subtitle">{{t('product_special_content')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('product_special')}}</p>
+                    <p class="subtitle" data-aos="fade-up">{{t('product_special_content')}}</p>
                     <ul>
-                        <li v-for="(item,index) in productList" :key="index">
+                        <li v-for="(item,index) in productList" :key="index" data-aos="fade-left">
                             <p class="title_li">{{item.title}}</p>
                             <p class="content">{{item.content}}</p>
                         </li>
@@ -95,18 +93,12 @@ onMounted(()=>{
         <div class="section section2">
            <div class="container">
                 <div>
-                    <p class="title">{{t('max_value')}}</p>
-                    <p class="content">{{t('max_value_intro')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('max_value')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('max_value_intro')}}</p>
                 </div>
             </div>
         </div>
-         <div class="section section7" v-if="isMobile">
-            <Footer/>
-        </div>
-        <div class="section section6" v-else>
-            <Footer/>
-        </div>  
-    </fullPage>
+    </div>
  </div>
 </template>
 
@@ -123,7 +115,7 @@ onMounted(()=>{
             margin: 0 auto;
             display: flex;
             justify-content:center;
-            margin-top: 120px;
+            // margin-top: 120px;
             .title {
                 font-size: 50px;
                 color: #fff;
@@ -235,19 +227,22 @@ onMounted(()=>{
       .section0 {
          background: url("../../assets/images/pc/cnbg1.png") no-repeat center;
          background-size: 100% 100%;
+         display: flex;
          justify-content: space-between;
          height: 100%;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-               display: flex;
-               justify-content: space-between;
-               flex-direction: column;
-            }
+         padding: 120px 0;
+         box-sizing: border-box;
+         flex-direction: column;
+         .container {
+            padding: 0;
          }
+         .bottom_list {
+            margin-bottom: 0;
+        }
       }
       .section1 {
         background: #000;
+        display: flex;
       }
       .section2 {
          background: url("../../assets/images/pc/cnbg3.png") no-repeat center;
@@ -380,7 +375,9 @@ onMounted(()=>{
             background: url("../../assets/images/mobile/cn-1.png") no-repeat center;
         }
         .section1 {
-            padding-top: 70px;
+            padding: 70px 0;
+            height:  auto !important;
+            box-sizing: border-box;
         }
         .section2 {
             background: url("../../assets/images/mobile/cn-2.png") no-repeat center;

@@ -13,7 +13,7 @@
                             <p v-for="(item,index) in lists[1].list" :key="index" @click="toUrl(item.url)">{{item.name}}</p>
                         </van-collapse-item>
                     </van-collapse>
-                    <p v-for="(item,index) in lists.slice(1,6)" class="name" @click="toUrl(item.url)">{{item.name}}</p>
+                    <p v-for="(item,index) in lists.slice(2,6)" class="name" @click="toUrl(item.url)">{{item.name}}</p>
                 </div>
             </div>
             <div class="bottom">

@@ -203,7 +203,7 @@ watch(route, (newValue, oldValue) => {
                             <p v-for="(item,index) in headerMenu[1].child" :key="index" @click="menuTourl(item)">{{item.name}}</p>
                         </van-collapse-item>
                     </van-collapse>
-                    <p v-for="(item,index) in headerMenu.slice(1,6)" class="name" @click="menuTourl(item)">{{item.name}}</p>
+                    <p v-for="(item,index) in headerMenu.slice(2,6)" class="name" @click="menuTourl(item)">{{item.name}}</p>
                 </div>
             </div>
         </div>
@@ -397,7 +397,7 @@ watch(route, (newValue, oldValue) => {
             .name {
                 font-size: 15px;
                 color: #171A20;
-                padding-left: 18px;
+                padding-left: 15px;
                 margin-bottom: 30px;
                 font-weight: 700;
             }

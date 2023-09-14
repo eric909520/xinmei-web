@@ -21,7 +21,6 @@ const state = reactive({
   }
 })
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
 })
 const lang = localStorage.getItem('lang')
 const lists = computed(()=>[
@@ -45,70 +44,62 @@ const exploreList = computed(()=>[
 
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-  <fullPage  class="full-page" ref="fullpage"  :options="state.options">
-   <div class="section section0">
-      <div :class="lang == 'en' ? 'container en-container':'container'">
-         <div class="first">
-            <p class="title">{{t('ten_year')}}</p>
-            <p>{{t('experise')}}</p>
+  <div class="full-page">
+      <div class="section section0">
+         <div :class="lang == 'en' ? 'container en-container':'container'" data-aos="fade-up">
+            <div class="first">
+               <p class="title">{{t('ten_year')}}</p>
+               <p>{{t('experise')}}</p>
+            </div>
+            <div class="first">
+               <img src="@/assets/images/pc/wish_logo.svg" alt="">
+               <p>{{t('one_wish')}}</p>
+            </div>
+            <div class="first">
+               <p class="title">315 {{t('Mwall')}}</p>
+               <p>{{t('amount_machain')}}</p>
+            </div>
          </div>
-         <div class="first">
-            <img src="@/assets/images/pc/wish_logo.svg" alt="">
-            <p>{{t('one_wish')}}</p>
+      </div>   
+      <div class="section section1">
+         <div :class="lang == 'en' ? 'en-controduce controduce':'controduce'">
+            <div>
+               <p class="title" data-aos="fade-down">{{t('company_intro')}}</p>
+               <p class="content" data-aos="fade-up">{{t('first_intro')}}</p>
+               <p class="content" data-aos="fade-up">{{t('second_intro')}}</p>
+               <p class="content" data-aos="fade-up">{{t('thirs_intro')}}</p>
+            </div>
+            <div class="list">
+               <ul v-if="isMobile">
+                  <li v-for="(item,index) in lists.slice(0,3)" :key="index" data-aos="flip-left">
+                     <img :src="item.img" alt="">
+                     <p>{{item.Mname}}</p>
+                     <p>{{item.Sname}}</p>
+                  </li>
+               </ul>
+               <ul v-else>
+                  <li v-for="(item,index) in lists" :key="index" data-aos="flip-left">
+                     <img :src="item.img" alt="">
+                     <p>{{item.Mname}}</p>
+                     <p>{{item.Sname}}</p>
+                  </li>
+               </ul>
+            </div>
          </div>
-         <div class="first">
-            <p class="title">315 {{t('Mwall')}}</p>
-            <p>{{t('amount_machain')}}</p>
-         </div>
-      </div>
-   </div>   
-   <div class="section section1">
-      <div :class="lang == 'en' ? 'en-controduce controduce':'controduce'">
-         <div>
-            <p class="title">{{t('company_intro')}}</p>
-            <p class="content">{{t('first_intro')}}</p>
-            <p class="content">{{t('second_intro')}}</p>
-            <p class="content">{{t('thirs_intro')}}</p>
-         </div>
-         <div class="list">
-            <ul v-if="isMobile">
-               <li v-for="(item,index) in lists.slice(0,3)" :key="index">
-                  <img :src="item.img" alt="">
-                  <p>{{item.Mname}}</p>
-                  <p>{{item.Sname}}</p>
+      </div>   
+      <div class="section section2">
+         <div class="m_container" v-if="isMobile">
+            <p class="title" data-aos="fade-up">{{t('explo_road')}}</p>
+            <ul>
+               <li v-for="(item,index) in exploreList" :key="index" data-aos="fade-right">
+                  <p class="time" v-if="item.title">{{item.title}}</p>
+                  <p class="content">{{item.content}}</p>
                </li>
             </ul>
-            <ul v-else>
-               <li v-for="(item,index) in lists" :key="index">
-                  <img :src="item.img" alt="">
-                  <p>{{item.Mname}}</p>
-                  <p>{{item.Sname}}</p>
-               </li>
-            </ul>
          </div>
+         <div class="container" v-else></div>
       </div>
-   </div>   
-   <div class="section section2">
-      <div class="m_container" v-if="isMobile">
-         <p class="title">{{t('explo_road')}}</p>
-         <ul>
-            <li v-for="(item,index) in exploreList" :key="index">
-               <p class="time" v-if="item.title">{{item.title}}</p>
-               <p class="content">{{item.content}}</p>
-            </li>
-         </ul>
-      </div>
-      <div class="container" v-else>
-         
-      </div>
-   </div>   
-    <div class="section section7" v-if="isMobile">
-      <Footer/>
-    </div>
-    <div class="section section6" v-else>
-      <Footer/>
-    </div>
-  </fullPage >
+  </div>
 </div>
 
   
@@ -121,7 +112,8 @@ const exploreList = computed(()=>[
       width: 100%;
       .section {
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        box-sizing: border-box;
         .container {
          display: flex;
          width: 1200px;
@@ -197,6 +189,10 @@ const exploreList = computed(()=>[
          background-size: 100% 100%;
          justify-content: flex-end;
          padding-bottom: 90px;
+         display: flex;
+         .container {
+            align-items: flex-end;
+         }
       }
       .section1 {
          background: url("../../assets/images/pc/bg2_2.png") no-repeat center;
@@ -224,7 +220,7 @@ const exploreList = computed(()=>[
        width: 100%;
        .section {
          width: 100%;
-         height: 100%;
+         height: 100vh;
          .container {
             justify-content: center;
             width: 100%;
@@ -289,6 +285,7 @@ const exploreList = computed(()=>[
          background-size: 100% 100%;
          justify-content: flex-end;
          padding-bottom: 90px;
+         box-sizing: border-box;
          .en-container {
             justify-content: space-around;
             gap: inherit;
@@ -300,11 +297,7 @@ const exploreList = computed(()=>[
          justify-content: space-between;
          padding-top: 70px;
          padding-bottom: 30px;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-            }
-         }
+         box-sizing: border-box;
          .en-controduce {
             .title {
                 margin-bottom: 20px;
@@ -324,6 +317,9 @@ const exploreList = computed(()=>[
          background: url("../../assets/images/mobile/bg2-3.png") no-repeat center;
          background-size: 100% 100%;
          // padding-top: 70px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
          .m_container {
             .title {
                color: #fff;

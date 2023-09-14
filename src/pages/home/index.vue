@@ -33,33 +33,24 @@ const toUrl = (url)=>{
    router.push(url)
 }
 onMounted(()=>{
-   fullpage.value.api.moveTo(1);
-   getImg()
+   // getImg()
 })
 </script>
 
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-  <fullPage  class="full-page" ref="fullpage"  :options="state.options">
-   <div v-for="(item,index) in lists" :key="index" :class="'section section'+index">
-      <div class="container">
-         <div>
-            <p class="title">{{item.title}}</p>
-            <p class="sub_title">{{item.subtitle}}</p>
+  <div class="full-page">
+      <div v-for="(item,index) in lists" :key="index" :class="'section section'+index">
+         <div class="container">
+            <div>
+               <p class="title" data-aos="fade-right">{{item.title}}</p>
+               <p class="sub_title" data-aos="fade-up">{{item.subtitle}}</p>
+            </div>
+            <button @click="toUrl(item.url)" data-aos="zoom-in-down">{{item.btnText}}</button>
          </div>
-         <button @click="toUrl(item.url)">{{item.btnText}}</button>
       </div>
-   </div>
-    <div class="section section7" v-if="isMobile">
-      <Footer/>
-    </div>
-    <div class="section section6" v-else>
-      <Footer/>
-    </div>
-  </fullPage >
+  </div>
 </div>
-
-  
 </template>
 
 <style scoped lang="scss">
@@ -70,6 +61,10 @@ onMounted(()=>{
       .section {
         width: 100%;
         height: 100%;
+        height: 100vh;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
         .container {
          width: 1200px;
          margin:0 auto;
@@ -167,12 +162,11 @@ onMounted(()=>{
 .m_big_box {
    .full-page {
       .section {
-         ::v-deep {
             justify-content: space-between;
             padding-top: 110px;
             padding-bottom: 70px;
-            .fp-overflow {
-               height: 100%;
+            height: 100vh;
+            box-sizing: border-box;
                .container {
                   height: 100%;
                   width: 100%;
@@ -194,8 +188,6 @@ onMounted(()=>{
                      padding: 15px 40px;
                   }
                }
-            }
-         }
       }
       .section0 {
          background: url("../../assets/images/mobile/bg1.png") no-repeat center;
