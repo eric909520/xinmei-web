@@ -63,7 +63,6 @@ const tableData = ref([
  }
 ])
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
    setTabelRowSpan(tableData.value,['use'],{use:[]})
 })
 const setTabelRowSpan=(tableData, fieldArr, effectMerge = {})=> {
@@ -104,12 +103,12 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-    <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+    <div class="full-page">
         <div class="section section0">
             <div class="container">
                 <div>
-                    <p class="title">{{t('download')}}</p>
-                    <p class="content">{{t('download_desc')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('download')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('download_desc')}}</p>
                 </div>
             </div>
         </div>
@@ -143,13 +142,7 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
               </el-table>
             </div>
         </div>
-         <div class="section section7" v-if="isMobile">
-            <Footer/>
-        </div>
-        <div class="section section6" v-else>
-            <Footer/>
-        </div>  
-    </fullPage>
+    </div>
  </div>
 </template>
 
@@ -195,29 +188,15 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
          background-size: 100% 100%;
          justify-content: flex-start;
          padding-top: 120px;
+         box-sizing: border-box;
       }
       .section1 {
         padding-top: 50px;
         padding-bottom: 20px;
         justify-content: flex-start;
          background: #F1F3F4;
-        // height: 150%;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-            //    height: 150%;
-            }
-            .fp-overflow::-webkit-scrollbar {
-                display: none; /* Chrome Safari */
-                }
-
-                .fp-overflow {
-                scrollbar-width: none; /* firefox */
-                -ms-overflow-style: none; /* IE 10+ */
-                overflow-x: hidden;
-                overflow-y: auto;
-                }
-         }
+         height: auto !important;
+         box-sizing: border-box;
       }
       .section6 {
         height: 340px !important;

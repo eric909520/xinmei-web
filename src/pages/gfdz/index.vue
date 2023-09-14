@@ -50,24 +50,22 @@ const introList = [
 const toDetails = (item)=>{
     router.push('/news-details')
 }
-const fullpage = ref(null)
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
 })
 </script>
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-    <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+    <div class="full-page">
         <div class="section section0">
             <div class="container">
                 <div>
-                    <p class="title">{{t('guangfu_power')}}</p>
-                    <p class="content">{{t('gfdz_intro')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('guangfu_power')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('gfdz_intro')}}</p>
                 </div>
             </div>
             <div class="bottom_list">
-                <div class="content" v-for="(item,index) in introList" :key="index">
+                <div class="content" v-for="(item,index) in introList" :key="index" data-aos="flip-left">
                     <p class="title">{{item.amount}}</p>
                     <p class="name">{{item.name}}</p>
                 </div>
@@ -76,20 +74,14 @@ onMounted(()=>{
         <div class="section section1">
             <div class="news_list">
                 <ul>
-                    <li v-for="(item,index) in lists" :key="index">
-                       <p class="title">{{item.title}}</p>
-                       <p class="content">{{item.content}}</p>
+                    <li v-for="(item,index) in lists" :key="index"  data-aos="flip-left">
+                       <p class="title" data-aos="fade-down">{{item.title}}</p>
+                       <p class="content" data-aos="fade-up">{{item.content}}</p>
                     </li>
                 </ul>
             </div>
         </div>
-         <div class="section section7" v-if="isMobile">
-            <Footer/>
-        </div>
-        <div class="section section6" v-else>
-            <Footer/>
-        </div>
-    </fullPage>
+    </div>
  </div>
 </template>
 
@@ -106,7 +98,8 @@ onMounted(()=>{
             margin: 0 auto;
             display: flex;
             justify-content:center;
-            margin-top: 120px;
+            padding-top: 120px;
+            box-sizing: border-box;
             .title {
                 font-size: 50px;
                 color: #fff;
@@ -201,16 +194,19 @@ onMounted(()=>{
       .section0 {
          background: url("../../assets/images/pc/dz1.png") no-repeat center;
          background-size: 100% 100%;
+         display: flex;
          justify-content: space-between;
          height: 100%;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-               display: flex;
-               justify-content: space-between;
-               flex-direction: column;
-            }
+         padding: 120px 0;
+         box-sizing: border-box;
+         flex-direction: column;
+         .container {
+            padding: 0;
+            
          }
+         .bottom_list {
+                margin-bottom: 0;
+            }
       }
       .section1 {
          ::v-deep {
@@ -305,11 +301,7 @@ onMounted(()=>{
             justify-content: space-between;
             padding-top: 70px;
             padding-bottom: 30px;
-            ::v-deep {
-                .fp-overflow {
-                height: 100%;
-                }
-            }
+            box-sizing: border-box;
         }
     }
 }

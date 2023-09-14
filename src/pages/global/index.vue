@@ -27,44 +27,38 @@ const partenerList = ref([
     {img:Partener5,id:5}
 ])
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
+//    fullpage.value.api.moveTo(1)
 })
 const { t } = useI18n()
 </script>
 <template>
     <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-         <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+        <div class="full-page">
             <div class="section section0">
                 <div class="container">
-                     <div>
-                        <p class="title">{{t('global_map')}}</p>
-                        <p class="content">{{t('blobal_details')}}</p>
+                        <div>
+                        <p class="title" data-aos="fade-down">{{t('global_map')}}</p>
+                        <p class="content" data-aos="fade-up">{{t('blobal_details')}}</p>
                     </div>
                 </div>
             </div>   
             <div class="section section1" v-if="isMobile">
-                <p class="title">{{t('partener')}}</p>
-               <ul>
+                <p class="title" data-aos="fade-down">{{t('partener')}}</p>
+                <ul>
                     <li v-for="(item,index) in partenerList" :key="item.id">
-                        <img :src="item.img" alt="">
+                        <img :src="item.img" alt="" data-aos="fade-up">
                     </li>
-               </ul>
+                </ul>
             </div> 
             <div class="section section1" v-else>
-               <ul>
+                <ul>
                     <li v-for="(item,index) in partenerList" :key="item.id">
-                        <img :src="item.img" alt="">
+                        <img :src="item.img" alt="" data-aos="fade-down">
                     </li>
-               </ul>
-               <p class="title">{{t('partener')}}</p>
-            </div>   
-            <div class="section section7" v-if="isMobile">
-                <Footer/>
-            </div>
-            <div class="section section6" v-else>
-                <Footer/>
-            </div>
-         </fullPage>
+                </ul>
+                <p class="title" data-aos="fade-up">{{t('partener')}}</p>
+            </div> 
+        </div>
     </div>
 </template>
 <style lang="scss" scoped>
@@ -74,7 +68,8 @@ const { t } = useI18n()
       width: 100%;
       .section {
         width: 100%;
-        height: 100%;
+        // height: 100%;
+        height: 100vh;
         .container {
             width: 887px;
             margin: 0 auto;
@@ -82,7 +77,7 @@ const { t } = useI18n()
             .title {
                 font-size: 50px;
                 color: #fff;
-                margin-bottom: 30px;
+                padding-bottom: 30px;
             }
             .content {
                 font-size: 16px;
@@ -150,7 +145,6 @@ const { t } = useI18n()
             }
         }
         .title {
-            margin-top: 88px;
             color: #fff;
             font-size: 50px;
         }
@@ -160,15 +154,14 @@ const { t } = useI18n()
          background-size: 100% 100%;
          justify-content: flex-start;
          padding-top: 120px;
+         box-sizing: border-box;
       }
       .section1 {
          background: url("../../assets/images/pc/global2.png") no-repeat center;
          background-size: 100% 100%;
-        justify-content: flex-start;
+         justify-content: flex-start;
          padding-top: 120px;
-      }
-    .section6 {
-        height: 340px !important;
+         box-sizing: border-box;
       }
     }
 }
@@ -177,7 +170,7 @@ const { t } = useI18n()
        width: 100%;
        .section {
          width: 100%;
-         height: 100%;
+         height: 100vh;
         .container {
             justify-content: center;
             width: 100%;
@@ -198,87 +191,84 @@ const { t } = useI18n()
             background-size: 100% 100%;
             justify-content: flex-start;
             padding-top: 90px;
+            box-sizing: border-box;
         }
       .section1 {
          background: url("../../assets/images/mobile/bg3-2.png") no-repeat center;
          background-size: 100% 100%;
          justify-content: space-between;
-        padding: 0;
-        ::v-deep {
-            .fp-overflow {
-               height: 100%;
-                padding-top: 90px;
-                 padding-bottom: 70px;
-                 display: flex;
-                 flex-direction: column;
-               justify-content: space-between;
-                .title {
-                    color: #fff;
-                    font-size: 30px;
-                }
-                ul {
-                    width: calc(100% - 50px);
-                    margin: 0 auto;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    gap: 40px;
-                    li {
-                        position: relative;
-                        &:nth-child(1) {
-                            img {
-                                width: 59px;
-                                height: 22px;
-                            }
-                        }
-                        &:nth-child(2) {
-                            img {
-                                width: 59px;
-                                height: 22px;
-                            }
-                        }
-                        &:nth-child(2) {
-                            img {
-                                width: 56px;
-                                height: 21px;
-                            }
-                        }
-                        &:nth-child(3) {
-                            img {
-                                width: 58px;
-                                height: 20px;
-                            }
-                        }
-                        &:nth-child(4) {
-                            img {
-                                width: 60px;
-                                height: 20px;
-                            }
-                        }
-                        &:nth-child(5) {
-                            img {
-                                width: 40px;
-                                height: 20px;
-                            }
-                            &::after {
-                                width: 0;
-                            }
-                        }
-                        &::after {
-                            content: "";
-                            width: 1px;
-                            height: 26px;
-                            background: #fff;
-                            position: absolute;
-                            right: -22px;
-                            top: 50%;
-                            transform: translateY(-50%);
-                        }
+         padding: 0;
+        height: 100%;
+        padding-top: 90px;
+            padding-bottom: 70px;
+            display: flex;
+            flex-direction: column;
+        justify-content: space-between;
+        .title {
+            color: #fff;
+            font-size: 30px;
+        }
+        ul {
+            width: calc(100% - 50px);
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            li {
+                position: relative;
+                &:nth-child(1) {
+                    img {
+                        width: 59px;
+                        height: 22px;
                     }
                 }
+                &:nth-child(2) {
+                    img {
+                        width: 59px;
+                        height: 22px;
+                    }
+                }
+                &:nth-child(2) {
+                    img {
+                        width: 56px;
+                        height: 21px;
+                    }
+                }
+                &:nth-child(3) {
+                    img {
+                        width: 58px;
+                        height: 20px;
+                    }
+                }
+                &:nth-child(4) {
+                    img {
+                        width: 60px;
+                        height: 20px;
+                    }
+                }
+                &:nth-child(5) {
+                    img {
+                        width: 40px;
+                        height: 20px;
+                    }
+                    &::after {
+                        width: 0;
+                    }
+                }
+                &::after {
+                    content: "";
+                    width: 1px;
+                    height: 26px;
+                    background: #fff;
+                    position: absolute;
+                    right: -22px;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
             }
-         }
+        }
       }
     }
 }

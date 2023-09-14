@@ -13,7 +13,7 @@
                             <p v-for="(item,index) in lists[1].list" :key="index" @click="toUrl(item.url)">{{item.name}}</p>
                         </van-collapse-item>
                     </van-collapse>
-                    <p v-for="(item,index) in lists.slice(1,6)" class="name" @click="toUrl(item.url)">{{item.name}}</p>
+                    <p v-for="(item,index) in lists.slice(2,6)" class="name" @click="toUrl(item.url)">{{item.name}}</p>
                 </div>
             </div>
             <div class="bottom">
@@ -36,7 +36,7 @@
         </div>
         <div class="norem-container_box" v-else>
             <div class="top">
-                <div class="left">
+                <div :class="i18nLanguage == 'en' ? 'left en-left' : 'left'">
                     <div class="left_top">
                         <img src="@/assets/images/pc/footer_logo.png" alt="">
                         <div class="top_bot">
@@ -57,7 +57,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="right">
+                <div :class="i18nLanguage == 'en' ? 'right en-right' : 'right'">
                     <ul>
                         <li v-for="(item,index) in lists" :key="index" @click="toUrl(item.url)">
                             <p class="title">{{item.name}}</p>
@@ -85,6 +85,7 @@ import phone from "@/assets/images/pc/phone.svg"
 import mail from "@/assets/images/pc/mail.svg"
 import { useRouter } from "vue-router";
 const { t } = useI18n()
+const { locale: i18nLanguage } = useI18n()
 const isMobile = inject('isMobile')
 const activeNames = ref(['1'])
 const activeNames2 = ref(['1'])
@@ -117,6 +118,7 @@ const router = useRouter()
 const toUrl = (url)=>{
      router.push(url)
 }
+console.log(i18nLanguage.value,"123")
 </script>
 <style lang="scss" scoped>
 .big_box {
@@ -192,6 +194,9 @@ const toUrl = (url)=>{
                     }
                 }
             }
+            .en-left {
+                width: 50%;
+            }
             .right {
                 margin-top:35px;
                 ul {
@@ -209,6 +214,19 @@ const toUrl = (url)=>{
                         .sub_title {
                             font-size: 16px;
                             margin-bottom: 20px;
+                        }
+                    }
+                }
+            }
+            .en-right {
+                ul {
+                    gap: 10px;
+                    li {
+                        .title {
+                            font-size: 16px;
+                        }
+                        .sub_title {
+                            font-size: 12px;
                         }
                     }
                 }

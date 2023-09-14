@@ -12,83 +12,75 @@ const state = reactive({
     },
   }
 })
-const fullpage = ref(null)
 const isMobile = inject('isMobile')
 onMounted(()=>{
-   fullpage.value.api.moveTo(1)
 })
 const { t } = useI18n()
 </script>
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-    <fullPage  class="full-page" ref="fullpage"  :options="state.options">
+    <div class="full-page">
         <div class="section section0">
             <div class="container">
                 <div>
-                    <p class="title">{{t('service')}}</p>
-                    <p class="content">{{t('service_content')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('service')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('service_content')}}</p>
                 </div>
             </div>
         </div>
         <div class="section section1">
             <div class="top">
-                <p class="title">{{t('watch_day_subtitle')}}</p>
-                <p class="subtitle">{{t('watch_day_subtitle_content')}}</p>
-                <img src="@/assets/images/pc/service_1.png" alt="">
+                <p class="title" data-aos="fade-down">{{t('watch_day_subtitle')}}</p>
+                <p class="subtitle" data-aos="fade-up">{{t('watch_day_subtitle_content')}}</p>
+                <img src="@/assets/images/pc/service_1.png" alt="" data-aos="fade-up">
             </div>
             <div class="middle">
                 <div class="left">
-                    <p class="title">{{t('check_anytime')}}</p>
-                    <p class="subtitle">{{t('check_anytime_content')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('check_anytime')}}</p>
+                    <p class="subtitle" data-aos="fade-up">{{t('check_anytime_content')}}</p>
                 </div>
                 <div class="right">
-                    <img src="@/assets/images/pc/service_2.png" alt="">
+                    <img src="@/assets/images/pc/service_2.png" alt="" data-aos="fade-left">
                 </div>
             </div>
             <div v-if="isMobile" class="middle">
                  <div class="left">
-                    <p class="title">{{t('hot_line')}}</p>
-                    <p class="subtitle">{{t('hot_line_content1')}}</p>
-                    <p class="subtitle">{{t('hot_line_content2')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('hot_line')}}</p>
+                    <p class="subtitle" data-aos="fade-up">{{t('hot_line_content1')}}</p>
+                    <p class="subtitle" data-aos="fade-up">{{t('hot_line_content2')}}</p>
                 </div>
                 <div class="right">
-                    <img src="@/assets/images/pc/service_3.png" alt="">
+                    <img src="@/assets/images/pc/service_3.png" alt="" data-aos="fade-up">
                 </div>
             </div>
             <div class="middle" v-else>
                 <div class="right">
-                    <img src="@/assets/images/pc/service_3.png" alt="">
+                    <img src="@/assets/images/pc/service_3.png" alt="" data-aos="fade-right">
                 </div>
                 <div class="left" style="margin-left:70px">
-                    <p class="title">{{t('hot_line')}}</p>
-                    <p class="subtitle">{{t('hot_line_content1')}}</p>
-                    <p class="subtitle">{{t('hot_line_content2')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('hot_line')}}</p>
+                    <p class="subtitle" data-aos="fade-up">{{t('hot_line_content1')}}</p>
+                    <p class="subtitle" data-aos="fade-up">{{t('hot_line_content2')}}</p>
                 </div>
             </div>
         </div>
         <div class="section section2">
             <div class="container">
                 <div>
-                    <p class="title">{{t('sys_authority')}}</p>
-                    <p class="content">{{t('sys_authority_content1')}}</p>
-                    <p class="content">{{t('sys_authority_content2')}}</p>
-                    <p class="content">{{t('sys_authority_content3')}}</p>
+                    <p class="title" data-aos="fade-down">{{t('sys_authority')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('sys_authority_content1')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('sys_authority_content2')}}</p>
+                    <p class="content" data-aos="fade-up">{{t('sys_authority_content3')}}</p>
                     <div v-if="isMobile" class="authority">
-                        <img src="@/assets/images/mobile/authority.png" alt="" >
-                        <img src="@/assets/images/mobile/authority2.png" alt="">
+                        <img src="@/assets/images/mobile/authority.png" alt="" data-aos="fade-up">
+                        <img src="@/assets/images/mobile/authority2.png" alt="" data-aos="fade-up">
                     </div>
-                    <img src="@/assets/images/pc/authority.png" v-else alt="" style="width:1200px;height:auto;margin-top:40px">
+                    <img data-aos="fade-up" src="@/assets/images/pc/authority.png" v-else alt="" style="width:1200px;height:auto;margin-top:40px">
                 </div>
             </div>
         </div>
-         <div class="section section7" v-if="isMobile">
-            <Footer/>
-        </div>
-        <div class="section section6" v-else>
-            <Footer/>
-        </div> 
-    </fullPage>
+    </div>
  </div>
 </template>
 
@@ -155,35 +147,23 @@ const { t } = useI18n()
          background: url("../../assets/images/pc/service1.png") no-repeat center;
          background-size: 100% 100%;
          justify-content: flex-start;
-         padding-top: 80px;
+         padding-top: 120px;
+         box-sizing: border-box;
       }
       .section2 {
          background: url("../../assets/images/pc/service2.png") no-repeat center;
          background-size: 100% 100%;
          justify-content: flex-start;
          padding-top: 120px;
+         box-sizing: border-box;
       }
       .section1 {
         padding-top: 70px;
         padding-bottom: 40px;
+        box-sizing: border-box;
         justify-content: flex-start;
-         background: #F1F3F4;
-        // height: 150%;
-         ::v-deep {
-            .fp-overflow {
-               height: 100%;
-            //    height: 150%;
-            }
-            .fp-overflow::-webkit-scrollbar {
-                display: none; /* Chrome Safari */
-                }
-                .fp-overflow {
-                scrollbar-width: none; /* firefox */
-                -ms-overflow-style: none; /* IE 10+ */
-                overflow-x: hidden;
-                overflow-y: auto;
-                }
-         }
+        background: #F1F3F4;
+        height: auto !important;
       }
     .section6 {
         height: 340px !important;
