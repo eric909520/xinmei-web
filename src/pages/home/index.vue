@@ -40,7 +40,7 @@ onMounted(()=>{
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
   <div class="full-page">
-      <div v-for="(item,index) in lists" :key="index" :class="'section section'+index" data-aos="zoom-out">
+      <div v-for="(item,index) in lists" :key="index" :class="'section section'+index" :data-aos="index != 0 ?'zoom-out':''">
          <div class="container">
             <div>
                <p class="title" data-aos="fade-right">{{item.title}}</p>
@@ -104,8 +104,26 @@ onMounted(()=>{
       .section0 {
          background: url("../../assets/images/pc/bg1.png") no-repeat center;
          background-size: 100% 100%;
+         // animation-name: scale-down;
+         // animation-duration: 3s;
+         // animation-fill-mode: forwards;
+         animation: scale-down 4s ease-in-out;
          .container {
             margin-bottom: 100px;
+         }
+      }
+      @keyframes scale-down {
+         0% {
+            transform: scale(1.8);
+         }
+         85% {
+            transform: scale(1);
+         }
+         95% {
+            transform: scale(1.2);
+         }
+         100% {
+             transform: scale(1);
          }
       }
       .section1 {
