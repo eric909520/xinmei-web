@@ -40,7 +40,7 @@ onMounted(()=>{
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
   <div class="full-page">
-      <div v-for="(item,index) in lists" :key="index" :class="'section section'+index">
+      <div v-for="(item,index) in lists" :key="index" :class="'section section'+index" data-aos="zoom-out">
          <div class="container">
             <div>
                <p class="title" data-aos="fade-right">{{item.title}}</p>

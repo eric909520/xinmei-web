@@ -45,7 +45,7 @@ const exploreList = computed(()=>[
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
   <div class="full-page">
-      <div class="section section0">
+      <div class="section section0" data-aos="zoom-out">
          <div :class="lang == 'en' ? 'container en-container':'container'" data-aos="fade-up">
             <div class="first">
                <p class="title">{{t('ten_year')}}</p>

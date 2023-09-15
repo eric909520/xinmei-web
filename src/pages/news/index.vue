@@ -68,7 +68,7 @@ onMounted(()=>{
     <fullPage  class="full-page" ref="fullpage"  :options="state.options">
     </fullPage>
     <div class="full-page">
-        <div class="section section0">
+        <div class="section section0" data-aos="zoom-out">
             <div class="container">
                 <div>
                     <p class="title" data-aos="fade-down">{{t('news_center')}}</p>

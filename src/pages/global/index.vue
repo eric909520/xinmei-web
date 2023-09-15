@@ -34,7 +34,7 @@ const { t } = useI18n()
 <template>
     <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
         <div class="full-page">
-            <div class="section section0">
+            <div class="section section0" data-aos="zoom-out">
                 <div class="container">
                         <div>
                         <p class="title" data-aos="fade-down">{{t('global_map')}}</p>

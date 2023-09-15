@@ -13,7 +13,7 @@ import i18n from './locals'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 AOS.init({
-    duration: 1000,
+    duration: 2000,
     easing: 'ease-in-out-back'
 });
 const isMobile = () => {
