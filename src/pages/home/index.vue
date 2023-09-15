@@ -104,9 +104,6 @@ onMounted(()=>{
       .section0 {
          background: url("../../assets/images/pc/bg1.png") no-repeat center;
          background-size: 100% 100%;
-         // animation-name: scale-down;
-         // animation-duration: 3s;
-         // animation-fill-mode: forwards;
          animation: scale-down 4s ease-in-out;
          .container {
             margin-bottom: 100px;
