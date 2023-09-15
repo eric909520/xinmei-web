@@ -3,7 +3,7 @@ export default {
     product: 'Product Center',
     service: 'Product Center',
     download: 'Download Center',
-    concact: 'contact us',
+    concact: 'Contact us',
     support: "Technical support: Jiangsu Snowball Software",
     follow_us: "Follow us",
     company_address: "No. 6, Longhu East Road, Economic and Technological Development Zone, Xuzhou City, Jiangsu Province",
