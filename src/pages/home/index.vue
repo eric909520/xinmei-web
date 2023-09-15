@@ -116,12 +116,6 @@ onMounted(()=>{
          0% {
             transform: scale(1.8);
          }
-         85% {
-            transform: scale(1);
-         }
-         95% {
-            transform: scale(1.2);
-         }
          100% {
              transform: scale(1);
          }
