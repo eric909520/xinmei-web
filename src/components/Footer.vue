@@ -34,7 +34,7 @@
             </div>
             <p class="support">{{t('support')}}</p>
             <div class="info">
-                <p>sunmae © 2023 </p>
+                <p>sunmae © {{new Date().getFullYear()}} </p>
                 <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
             </div>
         </div>
@@ -78,7 +78,7 @@
             <div class="bottom">
                 <p>{{t('support')}}</p>
                 <div class="info">
-                    <p>sunmae © 2023 </p>
+                    <p>sunmae © {{new Date().getFullYear()}} </p>
                     <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
                 </div>
             </div>
