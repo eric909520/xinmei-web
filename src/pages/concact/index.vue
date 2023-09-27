@@ -98,9 +98,10 @@ const { t } = useI18n()
               flex-direction: column;
               justify-content: flex-start;
               // align-items: center;
-              padding: 64px 70px;
+              padding: 64px 50px;
               box-sizing: border-box;
               margin-bottom: 40px;
+              height: 442px;
               p {
                 text-align: left;
               }
