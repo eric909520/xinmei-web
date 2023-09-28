@@ -11,16 +11,27 @@ const router = useRouter()
 const getImg = async()=>{
    let res = await getAuth()
 }
+const activeIndex = ref(0)
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
      credits: {
       "enabled": false,
       "label": '1',
-      "position": 'right'
+      "position": 'right',
     },
+     afterLoad:(anchorLink, index)=>{
+         activeIndex.value = index.index;
+         // let obj = document.querySelector('.section5');
+         // if(index.index == 6 || index.index == 5) {
+         //    obj.style.opacity = '1'
+         // }else {
+         //    obj.style.opacity = '0'
+         // }
+      }
   }
 })
+
 const lists = computed(()=>[
    {title:t('sun_no_limit'),subtitle:t('no_limit_tomorrow'),btnText:t('know_xm'),url:'/introduce'},
    {title:t('sun_with'),subtitle:t('sun_road'),btnText:t('know_gfdz'),url:'/gfdz'},
@@ -33,23 +44,34 @@ const toUrl = (url)=>{
    router.push(url)
 }
 onMounted(()=>{
-   // getImg()
+   fullpage.value.api.moveTo(1)
 })
 </script>
 
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-  <div class="full-page">
-      <div v-for="(item,index) in lists" :key="index" :class="'section section'+index" :data-aos="index != 0 ?'zoom-out':''">
+  <full-page class="full-page" ref="fullpage"  :options="state.options">
+      <div v-for="(item,index) in lists" 
+            :key="index"
+            :class="[
+               'section',
+               index != 0 && 'section_bg',
+               'section'+index,
+               index != 0 &&  activeIndex == index && 'zoom-out'
+            ]"
+      >
          <div class="container">
             <div>
-               <p class="title" data-aos="fade-right">{{item.title}}</p>
-               <p class="sub_title" data-aos="fade-up">{{item.subtitle}}</p>
+               <p class="title animate" :class="{'fade-right':activeIndex == index}">{{item.title}}</p>
+               <p class="sub_title animate" :class="{'fade-up':activeIndex == index}">{{item.subtitle}}</p>
             </div>
-            <button @click="toUrl(item.url)" data-aos="zoom-in-down">{{item.btnText}}</button>
+            <button @click="toUrl(item.url)" class="btn animate" :class="{'zoom-in-down':activeIndex == index}">{{item.btnText}}</button>
          </div>
       </div>
-  </div>
+      <div class="section section6">
+         <Footer/>
+      </div>
+  </full-page>
 </div>
 </template>
 
@@ -60,11 +82,20 @@ onMounted(()=>{
       width: 100%;
       .section {
         width: 100%;
-        height: 100%;
-        height: 100vh;
+        height: 100% !important;
+      //   height: 100vh;
          display: flex;
          flex-direction: column;
          justify-content: center;
+         ::v-deep {
+            .fp-overflow {
+               display: flex;
+               height: 100%;
+               height: 100%;
+               justify-content: center;
+               align-items: center;
+            }
+         }
         .container {
          width: 1200px;
          margin:0 auto;
@@ -164,7 +195,8 @@ onMounted(()=>{
          }
       } 
       .section6 {
-         height: 340px !important;
+         height: 360px !important;
+         transform: scale(1) !important;
       }
     }
 }
@@ -242,12 +274,58 @@ onMounted(()=>{
             }
          }
       } 
-      .section7 {
+      .section6 {
          padding-top: 50px;
          background: #000;
          justify-content: center;
          padding-bottom: 0;
+         height: 100% !important;
       }
+   }
+}
+.animate {
+   opacity: 0;
+   transition-property: opacity,transform;
+   transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
+   transition-duration: 1s;
+   transform: translateZ(0) scale(1);
+}
+.title {
+   transform: translate3d(-100px,0,0);
+}
+.sub_title {
+   transform: translate3d(0,100px,0);
+}
+.fade-right {
+  opacity: 1;
+  transform: translateZ(0);
+}
+.fade-up {
+   opacity: 1;
+   transform: translateZ(0);
+}
+.btn {
+   transform: translate3d(0,-100px,0) scale(.6);
+}
+.zoom-in-down {
+   opacity: 1;
+   transform: translateZ(0);
+}
+.section_bg {
+   // transform: scale(1.2);
+   // opacity: 1;
+}
+.zoom-out {
+   // opacity: 1;
+   // transform: translateZ(0) scale(1);
+    animation: scale-up 2s ease-in-out;
+}
+@keyframes scale-up {
+ 0% {
+      transform: scale(1.8);
+   }
+   100% {
+         transform: scale(1) !important;
    }
 }
 </style>
