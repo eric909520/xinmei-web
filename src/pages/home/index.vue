@@ -204,18 +204,18 @@ onMounted(()=>{
    .full-page {
       .section {
             justify-content: space-between;
-            padding-top: 110px;
-            padding-bottom: 70px;
-            height: 100vh;
+            // padding-top: 150px;
+            // padding-bottom: 90px;
+            height: 100%;
             box-sizing: border-box;
                .container {
-                  height: 100%;
+                  height: 50%;
                   width: 100%;
                   align-items: center;
                   justify-content: space-between;
                   margin-bottom: 0;
                   .title {
-                     font-size: 30px;
+                     font-size: 28px;
                      width: 300px;
                   }
                   .sub_title {
