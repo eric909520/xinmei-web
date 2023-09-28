@@ -20,10 +20,10 @@ const isMobile = inject('isMobile')
 onMounted(()=>{
 })
 const companyList = computed(()=>[
-  {company:t('main_company'),img:companyImg1,name:t('main_company_name'),address:t('main_company_address'),mail:"sunmae2023@163.com",phone:'0516-83006977 / +86 13705139861'},
-  {company:t('other_company1'),img:companyImg2,name:t('other_company1_name'),address:t('other_company1_address'),mail:"info@el-power.gr",phone:'+306941534845'},
-  {company:t('other_company2'),img:companyImg3,name:t('other_company2_name'),address:t('other_company2_address'),mail:"sunmae2023@163.com",phone:'0519-85260299'},
-  {company:t('other_company3'),img:companyImg3,name:t('other_company3_name'),address:t('other_company3_address'),mail:"sunmae2023@163.com",phone:'0516-83006977 / +86 13705139861'}
+  {company:t('main_company'),img:companyImg1,name:t('main_company_name'),address:t('main_company_address'),mail:"contact@sunmae.cn"},
+  {company:t('other_company1'),img:companyImg2,name:t('other_company1_name'),address:t('other_company1_address'),mail:"contact@sunmae.cn"},
+  {company:t('other_company2'),img:companyImg3,name:t('other_company2_name'),address:t('other_company2_address'),mail:"contact@sunmae.cn"},
+  {company:t('other_company3'),img:companyImg3,name:t('other_company3_name'),address:t('other_company3_address'),mail:"contact@sunmae.cn"}
 ])
 const { t } = useI18n()
 </script>
@@ -48,7 +48,6 @@ const { t } = useI18n()
                   <p class="name" data-aos="fade-down">{{item.name}}</p>
                   <p class="address" data-aos="fade-up">{{t('address')}}:{{item.address}}</p>
                   <p class="address" data-aos="fade-up">{{t('email')}}:{{item.mail}}</p>
-                  <p class="address" data-aos="fade-up">{{t('phone')}}:{{item.phone}}</p>
                 </li>
               </ul>
             </div>

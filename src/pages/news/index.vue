@@ -65,8 +65,6 @@ onMounted(()=>{
 
 <template>
  <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
-    <fullPage  class="full-page" ref="fullpage"  :options="state.options">
-    </fullPage>
     <div class="full-page">
         <div class="section section0" data-aos="zoom-out">
             <div class="container">
