@@ -287,7 +287,8 @@ onMounted(()=>{
    opacity: 0;
    transition-property: opacity,transform;
    transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
-   transition-duration: 1s;
+   transition-duration: 2s;
+   transition-delay: 2s;
    transform: translateZ(0) scale(1);
 }
 .title {
@@ -305,7 +306,7 @@ onMounted(()=>{
    transform: translateZ(0);
 }
 .btn {
-   transform: translate3d(0,-100px,0) scale(.6);
+   transform: translate3d(0,-100px,0) scale(0);
 }
 .zoom-in-down {
    opacity: 1;
