@@ -199,7 +199,7 @@ watch(route, (newValue, oldValue) => {
                         </van-collapse-item>
                     </van-collapse>
                     <van-collapse v-model="activeNames2" :border="false">
-                        <van-collapse-item :title="t('about')" name="1">
+                        <van-collapse-item :title="t('product')" name="1">
                             <p v-for="(item,index) in headerMenu[1].child" :key="index" @click="menuTourl(item)">{{item.name}}</p>
                         </van-collapse-item>
                     </van-collapse>

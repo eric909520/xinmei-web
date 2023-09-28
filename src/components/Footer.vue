@@ -9,7 +9,7 @@
                         </van-collapse-item>
                     </van-collapse>
                     <van-collapse v-model="activeNames2" :border="false">
-                        <van-collapse-item :title="t('about')" name="1">
+                        <van-collapse-item :title="t('product')" name="1">
                             <p v-for="(item,index) in lists[1].list" :key="index" @click="toUrl(item.url)">{{item.name}}</p>
                         </van-collapse-item>
                     </van-collapse>
@@ -33,6 +33,10 @@
                 </div>
             </div>
             <p class="support">{{t('support')}}</p>
+            <div class="info">
+                <p>sunmae © {{new Date().getFullYear()}} </p>
+                <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
+            </div>
         </div>
         <div class="norem-container_box" v-else>
             <div class="top">
@@ -73,6 +77,10 @@
             </div>
             <div class="bottom">
                 <p>{{t('support')}}</p>
+                <div class="info">
+                    <p>sunmae © {{new Date().getFullYear()}} </p>
+                    <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
+                </div>
             </div>
         </div>
     </div>
@@ -236,6 +244,15 @@ console.log(i18nLanguage.value,"123")
             margin-top: 57px;
             color: #FFFFFF;
             font-size: 16px;
+            .info {
+                display: flex;
+                justify-content: center;
+                margin-top: 5px;
+                gap: 10px;
+                a {
+                    color: #fff;
+                }
+            }
         }
     }
     .m_container_box {
@@ -340,6 +357,16 @@ console.log(i18nLanguage.value,"123")
             font-size: 14px;
             color: #fff;
             opacity: 0.8;
+        }
+        .info {
+            font-size: 14px;
+            color: #fff;
+            opacity: 0.8;
+            a {
+                font-size: 14px;
+                color: #fff;
+                opacity: 0.8;
+            }
         }
     }
 }
