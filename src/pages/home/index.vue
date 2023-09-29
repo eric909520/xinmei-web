@@ -51,13 +51,13 @@ onMounted(()=>{
 <template>
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
   <full-page class="full-page" ref="fullpage"  :options="state.options">
+   <!-- index != 0 &&  activeIndex == index && 'zoom-out' -->
       <div v-for="(item,index) in lists" 
             :key="index"
             :class="[
                'section',
                index != 0 && 'section_bg',
                'section'+index,
-               index != 0 &&  activeIndex == index && 'zoom-out'
             ]"
       >
          <div class="container">
@@ -288,7 +288,7 @@ onMounted(()=>{
    transition-property: opacity,transform;
    transition-timing-function: cubic-bezier(.175,.885,.32,1.275);
    transition-duration: 2s;
-   transition-delay: 2s;
+   transition-delay: .1s;
    transform: translateZ(0) scale(1);
 }
 .title {
