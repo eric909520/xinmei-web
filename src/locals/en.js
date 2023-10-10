@@ -1,7 +1,7 @@
 export default {
     about: 'About SunMae',
     product: 'Product Center',
-    service: 'Product Center',
+    service: 'Service Center',
     download: 'Download Center',
     concact: 'Contact us',
     support: "Technical support: Jiangsu Snowball Software",
