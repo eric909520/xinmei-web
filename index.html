@@ -7,12 +7,20 @@
   <meta name="baidu-site-verification" content="codeva-nWaGOCsgkI" />
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-  <title>鑫美光伏</title>
+  <title></title>
 </head>
 
 <body>
   <div id="app"></div>
   <script type="module" src="/src/main.js"></script>
+  <script>
+    var lang = localStorage.getItem('lang')
+    if(lang == 'zh') {
+      document.title = '鑫美光伏'
+    }else {
+      document.title = 'SunMae'
+    }
+  </script>
 </body>
 
 </html>
