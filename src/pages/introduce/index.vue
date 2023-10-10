@@ -87,7 +87,7 @@ const exploreList = computed(()=>[
             </div>
          </div>
       </div>   
-      <div class="section section2">
+      <div class="section section2" :class="lang == 'en'?'en_bg':''">
          <div class="m_container" v-if="isMobile">
             <p class="title" data-aos="fade-up">{{t('explo_road')}}</p>
             <ul>
@@ -97,7 +97,11 @@ const exploreList = computed(()=>[
                </li>
             </ul>
          </div>
-         <div class="container" v-else></div>
+         <div class="container" v-else>
+            <div :class="lang == 'en' ? 'en-controduce controduce':'controduce'">
+               <p class="title" data-aos="fade-up" style="color:#fff;padding-top:50px">{{t('explo_road')}}</p>
+            </div>
+         </div>
       </div>
   </div>
 </div>
@@ -210,6 +214,10 @@ const exploreList = computed(()=>[
          background: url("../../assets/images/pc/bg2_3.png") no-repeat center;
          background-size: 100% 100%;
       }
+      .en_bg {
+         background: url("../../assets/images/pc/bg2_3-en.png") no-repeat center;
+         background-size: 100% 100%;
+      }
       .section6 {
         height: 340px !important;
       }
@@ -320,6 +328,7 @@ const exploreList = computed(()=>[
          display: flex;
          flex-direction: column;
          justify-content: center;
+         height: 125vh !important;
          .m_container {
             .title {
                color: #fff;

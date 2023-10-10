@@ -127,7 +127,7 @@ export default {
     language: 'language',
     confirm: "confirm",
     cancel: "cancel",
-    explo_road: "development path",
+    explo_road: "Development Path",
     road1: "C & S IKE Group invests in Jiangsu SunMae Photovoltaic Technology Co., Ltd.",
     road2: "Signed a dual power supply renovation project for seismic station monitoring with the Tianjin Seismological Bureau to realize the complementarity of mains power and photovoltaic power generation monitored by the seismic station and ensure the normal operation of the seismic station monitoring",
     road3: "Signed a 20MW power station supporting contract with CNNC (Nanjing) Energy Development Company, and the company started large-scale ground power station business",
