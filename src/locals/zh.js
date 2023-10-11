@@ -109,7 +109,7 @@ export default {
     material_name: "材料名称",
     material_type: "材料类型",
     material_use: "说明/用途",
-    main_company: "总部",
+    main_company: "中国公司总部",
     main_company_name: "江苏鑫美光伏科技有限公司",
     main_company_address: "江苏省徐州市经济开发区龙湖东路6号金龙湖创新谷",
     other_company1: '母公司',

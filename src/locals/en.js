@@ -109,7 +109,7 @@ export default {
     material_name: "Material name",
     material_type: "material type",
     material_use: "Description/Use",
-    main_company: "Headquarters",
+    main_company: "China Company Headquarters",
     main_company_name: "Jiangsu SunMae Photovoltaic Technology Co., Ltd.",
     main_company_address: "Jinlong Lake Innovation Valley, No. 6 Longhu East Road, Xuzhou Economic Development Zone, Jiangsu Province",
     other_company1: 'parent company',
