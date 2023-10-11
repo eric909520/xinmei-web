@@ -137,5 +137,9 @@ export default {
     road7: "As of August 2023, the total installed capacity of photovoltaic power station projects undertaken or supported by the company is 315MW",
     year: 'year',
     month: 'month',
-    load_more: 'load more'
+    load_more: 'load more',
+    dz_ys: "Advantages",
+    company_name: 'Sunmae',
+    company_sub: "光伏节能建筑、光伏电站和储能运营商",
+    company_intro_content: "江苏鑫美光伏科技有限公司隶属于C&S IKE集团，于2017年成立。公司总部位于淮海经济区的核心城市江苏省徐州市。公司专注光伏电站和储能项目的全球开发、投资、建设与运维管理，融汇母公司C&S IKE集团的雄厚支持，致力于分布式光伏电站和储能建设，为全球能源革命和绿色城市建设贡献力量"
 }

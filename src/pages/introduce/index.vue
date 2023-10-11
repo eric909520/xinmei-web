@@ -46,7 +46,7 @@ const exploreList = computed(()=>[
 <div :class="isMobile ? 'norem-big_box m_big_box':'norem-big_box'">
   <div class="full-page">
       <div class="section section0" data-aos="zoom-out">
-         <div :class="lang == 'en' ? 'container en-container':'container'" data-aos="fade-up">
+         <!-- <div :class="lang == 'en' ? 'container en-container':'container'" data-aos="fade-up">
             <div class="first">
                <p class="title">{{t('ten_year')}}</p>
                <p>{{t('experise')}}</p>
@@ -59,7 +59,16 @@ const exploreList = computed(()=>[
                <p class="title">315 {{t('Mwall')}}</p>
                <p>{{t('amount_machain')}}</p>
             </div>
-         </div>
+         </div> -->
+         <!-- <div class="container">
+               <div>
+                  <div class="to_content" data-aos="fade-down">
+                     <p class="title">{{t('company_name')}}</p>
+                     <p class="subtitle">{{$t('company_sub')}}</p>
+                  </div>
+                  <p class="content" data-aos="fade-up">{{t('company_intro_content')}}</p>
+               </div>
+         </div> -->
       </div>   
       <div class="section section1">
          <div :class="lang == 'en' ? 'en-controduce controduce':'controduce'">
@@ -119,12 +128,27 @@ const exploreList = computed(()=>[
         height: 100vh;
         box-sizing: border-box;
         .container {
-         display: flex;
-         width: 1200px;
-         justify-content: center;
-         margin: auto;
-         height: 100%;
-         gap: 120px;
+            display: flex;
+            width: 953px;
+            justify-content: center;
+            margin: auto;
+            height: 100%;
+            gap: 120px;
+            .title {
+                  font-size: 50px;
+                  color: #fff;
+                  margin-bottom: 30px;
+            }
+            .subtitle {
+               font-size: 36px;
+               margin-bottom: 30px;
+               color: #fff;
+            }
+            .content {
+                  font-size: 16px;
+                  color: #fff;
+                  line-height: 32px;
+            }
             p{
                color: #fff;
                font-size: 16px;
@@ -191,11 +215,12 @@ const exploreList = computed(()=>[
       .section0 {
          background: url("../../assets/images/pc/bg2_1.png") no-repeat center;
          background-size: 100% 100%;
-         justify-content: flex-end;
-         padding-bottom: 90px;
+         justify-content: flex-start;
+         padding: 120px 0;
+         box-sizing: border-box;
          display: flex;
          .container {
-            align-items: flex-end;
+            // align-items: flex-end;
          }
       }
       .section1 {

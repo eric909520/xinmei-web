@@ -43,8 +43,8 @@ const lists = [
     }
 ]
 const introList = [
-    {name:t('installed_area'),amount:'50+'},
-    {name:t('partener_company'),amount:'100+'},
+    {name:t('dz_ys'),amount:'50+'},
+    // {name:t('partener_company'),amount:'100+'},
     {name:t('amount_machain'),amount:'315'+t('Mwall')},
 ]
 const toDetails = (item)=>{
@@ -68,6 +68,20 @@ onMounted(()=>{
                 <div class="content" v-for="(item,index) in introList" :key="index" data-aos="flip-left">
                     <p class="title">{{item.amount}}</p>
                     <p class="name">{{item.name}}</p>
+                </div>
+                <div class="add_content">
+                    <div class="content" data-aos="flip-left">
+                        <p class="title">{{t('ten_year')}}</p>
+                        <p class="name">{{t('experise')}}</p>
+                    </div>
+                    <div class="content" data-aos="flip-left">
+                        <img src="@/assets/images/pc/wish_logo.svg" alt="">
+                        <p class="name">{{t('one_wish')}}</p>
+                    </div>
+                    <div class="content" data-aos="flip-left">
+                        <p class="title">315 {{t('Mwall')}}</p>
+                        <p class="name">{{t('amount_machain')}}</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -116,20 +130,33 @@ onMounted(()=>{
             display: flex;
             justify-content: center;
             align-items: center;
-            gap:124px;
             margin-bottom: 80px;
+            gap: 40px;
             .content {
+                height: 80px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                align-items: center;
+                
                 .title {
                     color: #fff;
                     font-size: 28px;
-                    margin-bottom: 20px;
+                    // margin-bottom: 20px;
                 }
                 .name {
                     font-size: 18px;
                     color: #fff;
                 }
+                img {
+                    width: 28px;
+                    height: 28px;
+                }
             }
-
+            .add_content {
+                display: flex;
+                gap: 40px;
+            }
         }
         .news_list {
             height: 100%;
@@ -240,7 +267,9 @@ onMounted(()=>{
                width: 100%;
                justify-content: center;
                gap: 30px;
+               flex-wrap: wrap;
                .content {
+                height: 60px;
                     .title {
                         font-size: 18px;
                         margin-bottom: 10px;
