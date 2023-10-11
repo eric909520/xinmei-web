@@ -86,7 +86,7 @@ watch(route, (newValue, oldValue) => {
 </script>
 
 <template>
-  <div class="big_box" :style="changeHeader ? 'background:#F1F3F4':''">
+  <div :class="isMobile ? 'big_box':'big_box pc_big_box'" :style="changeHeader ? 'background:#F1F3F4':''">
     <div v-if="isMobile" class="m_container_box">
         <div class="left" @click="router.push('/')">
             <img src="@/assets/images/mobile/logo_top.png" alt="" v-if="changeHeader">
@@ -106,7 +106,7 @@ watch(route, (newValue, oldValue) => {
     </div>
     <div class="norem-container_box" v-else>
         <div class="left_logo" @click="router.push('/')">
-            <img src="@/assets/images/pc/logo.png" alt="">
+            <img src="@/assets/images/mobile/logo_top.png" alt="">
         </div>
         <div class="middle_menu">
             <ul>
@@ -144,7 +144,7 @@ watch(route, (newValue, oldValue) => {
             >
                 <template #reference>
                     <div class="lang_box" @click="showChose">
-                        <img src="@/assets/images/pc/lang.png">
+                        <img src="@/assets/images/mobile/menu_lang.png">
                         <p>{{langList.find(item=>item.value == lang).name}}</p>
                     </div>
                 </template>
@@ -215,6 +215,7 @@ watch(route, (newValue, oldValue) => {
 .big_box {
     height: 50px;
     position: fixed;
+    // background: #fff;
     top: 0;
     left: 0;
     z-index: 999;
@@ -404,6 +405,27 @@ watch(route, (newValue, oldValue) => {
         }
         p {
             text-align: left;
+        }
+    }
+}
+.pc_big_box {
+    background: #fff;
+    .norem-container_box {
+        .middle_menu {
+            ul {
+                li {
+                    p {
+                        color: #393C41;
+                    }
+                }
+            }
+        }
+        .right_lang {
+            .lang_box {
+                p{
+                    color: #393C41;
+                }
+            }
         }
     }
 }

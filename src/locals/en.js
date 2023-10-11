@@ -1,7 +1,7 @@
 export default {
     about: 'About SunMae',
     product: 'Product Center',
-    service: 'Product Center',
+    service: 'Service Center',
     download: 'Download Center',
     concact: 'Contact us',
     support: "Technical support: Jiangsu Snowball Software",
@@ -127,7 +127,7 @@ export default {
     language: 'language',
     confirm: "confirm",
     cancel: "cancel",
-    explo_road: "development path",
+    explo_road: "Development Path",
     road1: "C & S IKE Group invests in Jiangsu SunMae Photovoltaic Technology Co., Ltd.",
     road2: "Signed a dual power supply renovation project for seismic station monitoring with the Tianjin Seismological Bureau to realize the complementarity of mains power and photovoltaic power generation monitored by the seismic station and ensure the normal operation of the seismic station monitoring",
     road3: "Signed a 20MW power station supporting contract with CNNC (Nanjing) Energy Development Company, and the company started large-scale ground power station business",
@@ -137,5 +137,9 @@ export default {
     road7: "As of August 2023, the total installed capacity of photovoltaic power station projects undertaken or supported by the company is 315MW",
     year: 'year',
     month: 'month',
-    load_more: 'load more'
+    load_more: 'load more',
+    dz_ys: "Advantages",
+    company_name: 'Sunmae',
+    company_sub: "光伏节能建筑、光伏电站和储能运营商",
+    company_intro_content: "江苏鑫美光伏科技有限公司隶属于C&S IKE集团，于2017年成立。公司总部位于淮海经济区的核心城市江苏省徐州市。公司专注光伏电站和储能项目的全球开发、投资、建设与运维管理，融汇母公司C&S IKE集团的雄厚支持，致力于分布式光伏电站和储能建设，为全球能源革命和绿色城市建设贡献力量"
 }

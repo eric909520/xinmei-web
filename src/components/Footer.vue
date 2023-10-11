@@ -42,7 +42,8 @@
             <div class="top">
                 <div :class="i18nLanguage == 'en' ? 'left en-left' : 'left'">
                     <div class="left_top">
-                        <img src="@/assets/images/pc/footer_logo.png" alt="">
+                        <img src="@/assets/images/pc/footer_logo.png" alt="" v-if="i18nLanguage == 'zh'">
+                        <img src="@/assets/images/pc/en_foot_logo.png" alt="" v-else>
                         <div class="top_bot">
                             <div class="bot_left">
                                 <div class="er_box">
