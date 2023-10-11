@@ -20,8 +20,8 @@ const isMobile = inject('isMobile')
 onMounted(()=>{
 })
 const companyList = computed(()=>[
-  {company:t('main_company'),img:companyImg1,name:t('main_company_name'),address:t('main_company_address'),mail:"contact@sunmae.cn"},
   {company:t('other_company1'),img:companyImg2,name:t('other_company1_name'),address:t('other_company1_address'),mail:"contact@sunmae.cn"},
+  {company:t('main_company'),img:companyImg1,name:t('main_company_name'),address:t('main_company_address'),mail:"contact@sunmae.cn"},
   {company:t('other_company2'),img:companyImg3,name:t('other_company2_name'),address:t('other_company2_address'),mail:"contact@sunmae.cn"},
   {company:t('other_company3'),img:companyImg3,name:t('other_company3_name'),address:t('other_company3_address'),mail:"contact@sunmae.cn"}
 ])
