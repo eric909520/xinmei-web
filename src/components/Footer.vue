@@ -81,6 +81,7 @@
                 <div class="info">
                     <p>sunmae © {{new Date().getFullYear()}} </p>
                     <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
+                    <a href="https://beian.mps.gov.cn/#/query/webSearch">苏公网安备32039102000488号</a>
                 </div>
             </div>
         </div>
