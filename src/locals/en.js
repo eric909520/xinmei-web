@@ -117,7 +117,7 @@ export default {
     other_company1_address: 'N.E.O. Patron - Athinon 74, Patra 264 42',
     other_company2: 'Shanghai Branch',
     other_company2_name: 'Shanghai Basik Energy Technology Co., Ltd.',
-    other_company2_address: 'Room 1303, No. 68, Lane 1688, Guoquan North Road, Yangpu District, Shanghai',
+    other_company2_address: 'Bay Valley Science and Technology Park, Lane 1688, Guoquan North Road, Yangpu District, Shanghai',
     other_company3: 'Tianjin Branch',
     other_company3_name: 'Xineng Electric Power Engineering (Tianjin) Co., Ltd.',
     other_company3_address: 'Room 1134, Huaying Building, Central Avenue, Tianjin Pilot Free Trade Zone (Airport Economic Zone)',

@@ -117,7 +117,7 @@ export default {
     other_company1_address: 'N.E.O. Patron - Athinon 74, Patra 264 42',
     other_company2: '上海公司',
     other_company2_name: '上海巴适克能源科技有限公司',
-    other_company2_address: '上海市杨浦区国权北路1688弄68号1303室',
+    other_company2_address: '上海市杨浦区国权北路1688弄湾谷科技园',
     other_company3: '天津分公司',
     other_company3_name: '鑫能电力工程（天津）有限公司',
     other_company3_address: '天津自贸试验区（空港经济区）中心大道华盈大厦1134',
