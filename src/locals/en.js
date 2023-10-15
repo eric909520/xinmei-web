@@ -9,7 +9,7 @@ export default {
     company_address: "No. 6, Longhu East Road, Economic and Technological Development Zone, Xuzhou City, Jiangsu Province",
     componany_controducation: "Company Profile",
     all_world: "Global Distribution",
-    news_center: 'News Center',
+    news_center: 'Enterprise Dynamics',
     guangfu_power: 'Photovoltaic power station',
     power_system: 'Energy storage system',
     sun_no_limit: "Solar innovation, energy without boundaries",

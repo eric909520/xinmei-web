@@ -14,10 +14,10 @@ export default defineConfig({
     cors: true,
     // https: true,
     proxy: {
-      "/api": {
-        target: 'http://10.15.25.143:81',
+      "/system": {
+        target: 'https://service.sunmae.cn',
         changeOrigin: true,
-        // secure: false
+        secure: false
       },
     }
   },

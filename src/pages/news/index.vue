@@ -5,6 +5,8 @@ import { useI18n } from 'vue-i18n'
 import Img from "@/assets/images/pc/news.png"
 import{ElPagination} from "element-plus"
 import { useRouter } from 'vue-router'
+import axios from "axios"
+import {Encrypt,Decrypt} from "@/utils/aes.js"
 const { t } = useI18n()
 const router = useRouter()
 const isMobile = inject('isMobile')
@@ -18,48 +20,29 @@ const state = reactive({
     },
   }
 })
-const lists = [
-    {
-        img:Img,
-        title:'鑫美荣获第十一届全国品牌故事大赛（西安赛区）两项荣誉',
-        content:'8月15日，由中国质量协会主办，陕西省品牌建设促进中心、陕西省质量技术协会和陕西省品牌建设标准化技术委承办的第十一届陕西省质量技术协陕西省质量技术协',
-        time:'2023-09-02'
-    },
-     {
-        img:Img,
-        title:'鑫美荣获第十一届全国品牌故事大赛（西安赛区）两项荣誉',
-        content:'8月15日，由中国质量协会主办，陕西省品牌建设促进中心、陕西省质量技术协会和陕西省品牌建设标准化技术委承办的第十一届陕西省质量技术协陕西省质量技术协',
-        time:'2023-09-02'
-    },
-     {
-        img:Img,
-        title:'鑫美荣获第十一届全国品牌故事大赛（西安赛区）两项荣誉',
-        content:'8月15日，由中国质量协会主办，陕西省品牌建设促进中心、陕西省质量技术协会和陕西省品牌建设标准化技术委承办的第十一届陕西省质量技术协陕西省质量技术协',
-        time:'2023-09-02'
-    },
-     {
-        img:Img,
-        title:'鑫美荣获第十一届全国品牌故事大赛（西安赛区）两项荣誉',
-        content:'8月15日，由中国质量协会主办，陕西省品牌建设促进中心、陕西省质量技术协会和陕西省品牌建设标准化技术委承办的第十一届陕西省质量技术协陕西省质量技术协',
-        time:'2023-09-02'
-    },
-     {
-        img:Img,
-        title:'鑫美荣获第十一届全国品牌故事大赛（西安赛区）两项荣誉',
-        content:'8月15日，由中国质量协会主办，陕西省品牌建设促进中心、陕西省质量技术协会和陕西省品牌建设标准化技术委承办的第十一届陕西省质量技术协陕西省质量技术协',
-        time:'2023-09-02'
-    },
-     {
-        img:Img,
-        title:'鑫美荣获第十一届全国品牌故事大赛（西安赛区）两项荣誉',
-        content:'8月15日，由中国质量协会主办，陕西省品牌建设促进中心、陕西省质量技术协会和陕西省品牌建设标准化技术委承办的第十一届陕西省质量技术协陕西省质量技术协',
-        time:'2023-09-02'
-    }
-]
+let pages = ref({
+    pageNum:1,
+    pageSize:6
+})
 const toDetails = (item)=>{
     router.push('/news-details')
 }
-onMounted(()=>{
+const getList = ()=>{
+    let params = {
+        langue:localStorage.getItem('lang') == 'zh' ? 0 : 1,
+        ...pages.value
+    }
+    console.log(params,"1231212")
+    let dataParmas = {
+        sign:'',
+        data:Encrypt(params)
+    }
+    axios.post('/system/news/newsList',dataParmas).then(res=>{
+
+    })
+}
+onMounted(async()=>{
+    await getList()
 })
 </script>
 
