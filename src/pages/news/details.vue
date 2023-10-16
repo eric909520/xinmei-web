@@ -30,7 +30,7 @@ const getDetails = (id)=>{
         sign:'',
         data:Encrypt(params)
     }
-    axios.post('/system/news/detail',signParams).then(res=>{
+    axios.post('window.global_url.base_url + /system/news/detail',signParams).then(res=>{
         news.value = res.data.data.detail
         before.value = res.data.data.before
         after.value = res.data.data.after
@@ -132,8 +132,8 @@ const { t } = useI18n()
                 font-size: 16px;
                 color: #333333;
                 text-align: left;
-                
-                
+
+
             }
             .action_box {
                 margin-top: 40px;
