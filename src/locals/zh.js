@@ -140,6 +140,15 @@ export default {
     load_more: '加载更多',
     dz_ys: "电站的优势",
     company_name: '鑫美光伏',
+    gf_components: '光伏组件',
+    technical_support: '技术支持',
     company_sub: "光伏节能建筑、光伏电站和储能运营商",
-    company_intro_content: "江苏鑫美光伏科技有限公司隶属于C&S IKE集团，于2017年成立。公司总部位于淮海经济区的核心城市江苏省徐州市。公司专注光伏电站和储能项目的全球开发、投资、建设与运维管理，融汇母公司C&S IKE集团的雄厚支持，致力于分布式光伏电站和储能建设，为全球能源革命和绿色城市建设贡献力量"
+    company_intro_content: "江苏鑫美光伏科技有限公司隶属于C&S IKE集团，于2017年成立。公司总部位于淮海经济区的核心城市江苏省徐州市。公司专注光伏电站和储能项目的全球开发、投资、建设与运维管理，融汇母公司C&S IKE集团的雄厚支持，致力于分布式光伏电站和储能建设，为全球能源革命和绿色城市建设贡献力量",
+    Classification: "分类",
+    file_name: "文件名称",
+    file_type: "文件类型",
+    Release_time: "发布时间",
+    Previous_article: "上一篇",
+    next_article: "下一篇",
+    None: "暂无"
 }

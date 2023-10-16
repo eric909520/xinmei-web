@@ -3,7 +3,9 @@ import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import { useI18n } from 'vue-i18n'
 import Img from "@/assets/images/pc/news.png"
+import {Encrypt,Decrypt} from "@/utils/aes.js"
 import dayjs  from "dayjs"
+import axios from 'axios'
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -16,9 +18,27 @@ const state = reactive({
 })
 const fullpage = ref(null)
 const isMobile = inject('isMobile')
-let news = JSON.parse(localStorage.getItem('newsDetail'))
-onMounted(()=>{
-   
+let news = ref({})
+let before = ref({})
+let after = ref({})
+const getDetails = (id)=>{
+    let params = {
+        langue:localStorage.getItem('lang') == 'zh' ? 0 : 1,
+        id:id
+    };
+    let signParams = {
+        sign:'',
+        data:Encrypt(params)
+    }
+    axios.post('/system/news/detail',signParams).then(res=>{
+        news.value = res.data.data.detail
+        before.value = res.data.data.before
+        after.value = res.data.data.after
+    })
+}
+onMounted(async()=>{
+   let newsId = localStorage.getItem('newsDetail')
+   await getDetails(newsId)
 })
 const { t } = useI18n()
 </script>
@@ -37,24 +57,28 @@ const { t } = useI18n()
         <div class="section section1" v-if="!isMobile">
             <div class="news_list">
                 <p class="title">{{news.title}}</p>
-                <p class="time">发布时间：{{dayjs(news.createTime).format('YYYY-MM-DD')}}</p>
+                <p class="time">{{$t('Release_time')}}：{{dayjs(news.createTime).format('YYYY-MM-DD')}}</p>
                 <div class="content" v-html="news.content"></div>
-                <!-- <div class="action_box">
-                    <p>上一篇：致力于推动行业的规范化</p>
-                    <p>下一篇：致力于推动行业的规范化</p>
-                </div> -->
+                <div class="action_box">
+                    <p v-if="before && before.title" @click="getDetails(before.id)">{{$t('Previous_article')}}：{{before.title}}</p>
+                    <p v-else>{{$t('None')}}</p>
+                    <p v-if="after && after.title"  @click="getDetails(after.id)">{{$t('next_article')}}：{{after.title}}</p>
+                    <p v-else>{{$t('None')}}</p>
+                </div>
             </div>
         </div>
         <div class="section section1" v-if="isMobile">
             <div class="contetn_box">
                 <p class="title">{{news.title}}</p>
-                <p class="time">发布时间：{{dayjs(news.createTime).format('YYYY-MM-DD')}}</p>
+                <p class="time">{{$t('Release_time')}}：{{dayjs(news.createTime).format('YYYY-MM-DD')}}</p>
                 <img :src="Img" alt="">
                 <div class="content" v-html="news.content"></div>
-                <!-- <div class="action_box">
-                    <p>上一篇：致力于推动行业的规范化</p>
-                    <p>下一篇：致力于推动行业的规范化</p>
-                </div> -->
+                <div class="action_box">
+                     <p v-if="before && before.title" @click="getDetails(before.id)">{{$t('Previous_article')}}：{{before.title}}</p>
+                    <p v-else>{{$t('None')}}</p>
+                    <p v-if="after && after.title"  @click="getDetails(after.id)">{{$t('next_article')}}：{{after.title}}</p>
+                    <p v-else>{{$t('None')}}</p>
+                </div>
             </div>
         </div>
     </div>
