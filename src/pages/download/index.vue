@@ -99,7 +99,7 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="15%"/>
+                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="18%" align="center"/>
                 <el-table-column prop="typeName" :label="t('Classification')" />
                 <el-table-column prop="docName"  :label="t('file_name')" v-if="!isMobile">
                   <template #default="scope">
@@ -116,7 +116,7 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="15%"/>
+                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="18%" align="center"/>
                 <el-table-column prop="typeName" :label="t('Classification')" />
                 <el-table-column prop="docName"  :label="t('file_name')" v-if="!isMobile">
                   <template #default="scope">

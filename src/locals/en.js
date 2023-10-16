@@ -105,7 +105,7 @@ export default {
     sys_authority_content3: "IS045001: 2018: Occupational Health and Safety Management System",
     download_desc: "You can find documentation on the technical and credit sections of the collection list for more information",
     concact_desc: "You can contact SunMae Photovoltaics through the following methods",
-    table_number: "serial number",
+    table_number: "Number",
     material_name: "Material name",
     material_type: "material type",
     material_use: "Description/Use",
@@ -148,5 +148,5 @@ export default {
     Release_time: "Release Time",
     Previous_article: "Previous Article",
     next_article: "Next Article",
-    None: "None"
+    None: ""
 }

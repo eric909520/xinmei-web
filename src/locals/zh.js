@@ -150,5 +150,5 @@ export default {
     Release_time: "发布时间",
     Previous_article: "上一篇",
     next_article: "下一篇",
-    None: "暂无"
+    None: ""
 }
