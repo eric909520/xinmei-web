@@ -148,5 +148,6 @@ export default {
     Release_time: "Release Time",
     Previous_article: "Previous Article",
     next_article: "Next Article",
-    None: ""
+    None: "",
+    no_data: 'No Data'
 }

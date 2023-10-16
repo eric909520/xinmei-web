@@ -99,9 +99,9 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="18%" align="center"/>
-                <el-table-column prop="typeName" :label="t('Classification')" />
-                <el-table-column prop="docName"  :label="t('file_name')" v-if="!isMobile">
+                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="18%" align="center" v-if="!isMobile"/>
+                <el-table-column prop="typeName" :label="t('Classification')"/>
+                <el-table-column prop="docName"  :label="t('file_name')" >
                   <template #default="scope">
                     <a :href="scope.row.link">{{scope.row.docName}}</a>
                   </template>
@@ -116,9 +116,9 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="18%" align="center"/>
+                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="18%" align="center" v-if="!isMobile"/>
                 <el-table-column prop="typeName" :label="t('Classification')" />
-                <el-table-column prop="docName"  :label="t('file_name')" v-if="!isMobile">
+                <el-table-column prop="docName"  :label="t('file_name')" >
                   <template #default="scope">
                     <a :href="scope.row.link">{{scope.row.docName}}</a>
                   </template>
