@@ -31,23 +31,35 @@ const toDetails = (item)=>{
     localStorage.setItem('newsDetail',item.id)
     router.push('/news-details')
 }
-const getList = ()=>{
+const getList = (type)=>{
     let params = {
         langue:localStorage.getItem('lang') == 'zh' ? 0 : 1,
         ...pages.value
     }
+    console.log(params,"===")
     let dataParmas = {
         sign:'',
         data:Encrypt(params)
     }
     axios.post('/system/news/newsList',dataParmas).then(res=>{
-        lists.value = res.data.data.newsList
-        pages.value.total = res.data.data.total
+        if(type == 'isMobile') {
+            lists.value = lists.value.concat(res.data.data.newsList)
+            pages.value.total = res.data.data.total
+        }else {
+            lists.value = res.data.data.newsList
+            pages.value.total = res.data.data.total
+        }
     })
 }
 const currentChange =(val)=>{
     pages.value.pageNum = val;
     getList()
+}
+const addMore =() =>{
+    if(lists.value.length < pages.value.total) {
+        pages.value.pageNum = pages.value.pageNum + 1;
+        getList('isMobile') 
+    }
 }
 onMounted(async()=>{
     await getList()
@@ -75,7 +87,7 @@ onMounted(async()=>{
                         <p class="time">{{dayjs(item.createTime).format('YYYY-MM-DD')}}</p>
                     </li>
                 </ul>
-                <div class="load_more" v-if="isMobile">
+                <div class="load_more" v-if="isMobile && lists.length < pages.total" @click="addMore">
                     <p>{{t('load_more')}}</p>
                     <img src="@/assets/images/mobile/load_more.svg" alt="">
                 </div>
