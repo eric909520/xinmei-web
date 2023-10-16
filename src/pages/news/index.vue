@@ -28,7 +28,7 @@ let pages = ref({
 })
 let lists = ref([])
 const toDetails = (item)=>{
-    localStorage.setItem('newsDetail',JSON.stringify(item))
+    localStorage.setItem('newsDetail',item.id)
     router.push('/news-details')
 }
 const getList = ()=>{
@@ -41,8 +41,13 @@ const getList = ()=>{
         data:Encrypt(params)
     }
     axios.post('/system/news/newsList',dataParmas).then(res=>{
-        lists.value = res.data.data
+        lists.value = res.data.data.newsList
+        pages.value.total = res.data.data.total
     })
+}
+const currentChange =(val)=>{
+    pages.value.pageNum = val;
+    getList()
 }
 onMounted(async()=>{
     await getList()
@@ -74,7 +79,14 @@ onMounted(async()=>{
                     <p>{{t('load_more')}}</p>
                     <img src="@/assets/images/mobile/load_more.svg" alt="">
                 </div>
-                <!-- <el-pagination v-else layout="prev, pager, next" :total="pages.total" :page-size="pages.pageSize" :current-page="pages.pageNum"/> -->
+                <el-pagination 
+                            layout="prev, pager, next" 
+                            v-if="pages.total && !isMobile"
+                            :total="pages.total" 
+                            :page-size="pages.pageSize"
+                            v-model="pages.pageNum"
+                            @current-change="currentChange"
+                />
             </div>
         </div>
     </div>
