@@ -3,6 +3,8 @@ import { computed, onMounted, reactive, ref,inject } from 'vue'
 import Footer from "@/components/Footer.vue"
 import{ElTable,ElTableColumn} from "element-plus"
 import { useI18n } from 'vue-i18n'
+import axios from "axios"
+import {Encrypt,Decrypt} from "@/utils/aes.js"
 const state = reactive({
   options:{
     licenseKey: 'OPEN-SOURCE-GPLV3-LICENSE',
@@ -18,52 +20,29 @@ const fullpage = ref(null)
 const isMobile = inject('isMobile')
 let materialSpanArr = ref([])
 let materialpos = ref(null)
-const tableData = ref([
- {
-   number:1,
-   name:'厂区总平面图、安装组件房屋结构图、建筑图',
-   type:"电子档图纸",
-   use:"评估荷载，最优接入方式和规划容量",
-   useType:1
- },
- {
-   number:2,
-   name:'电气一次接线图',
-   type:"电子档图纸",
-   use:"评估荷载，最优接入方式和规划容量",
-   useType:1
- },
- {
-   number:3,
-   name:'接入点位置，实际变压器容量及数量',
-   type:"配电间位置图纸/变压器照片/厂区开关柜照片",
-   use:"评估荷载，最优接入方式和规划容量",
-   useType:1
- },
- {
-   number:4,
-   name:'近一年电费清单',
-   type:"清晰照片/清晰扫描件",
-   use:"清晰照片/清晰扫描件",
-   useType:2
- },
- {
-   number:5,
-   name:'企业用电曲线',
-   type:"描述企业用电情况（生产时间段，24 小时常开设备的功率及数量）",
-   use:"评估消纳比例",
-   useType:3
- },
- {
-   number:6,
-   name:'现场照片（屋面、屋顶结构、内部生产）',
-   type:"照片",
-   use:"屋面情况包括防水现状、屋面设备，内部钢架结构",
-   useType:4
- }
-])
-onMounted(()=>{
-   setTabelRowSpan(tableData.value,['use'],{use:[]})
+let list1 = ref([])
+let list2 = ref([])
+const getList = (type)=>{
+  let params = {
+    langue:localStorage.getItem('lang') == 'zh' ? 0 : 1,
+    type:type
+  }
+  let dataParmas = {
+    sign:'',
+    data:Encrypt(params)
+  }
+  axios.post('/system/doc/list',dataParmas).then(res=>{
+    if(type == 0) {
+      list1.value = res.data.data
+    }else {
+      list2.value = res.data.data
+    }
+  })
+}
+onMounted(async()=>{
+  //  setTabelRowSpan(tableData.value,['use'],{use:[]});
+   await getList(0)
+   await getList(1)
 })
 const setTabelRowSpan=(tableData, fieldArr, effectMerge = {})=> {
       let lastItem = {};
@@ -114,31 +93,40 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
         </div>
         <div class="section section1">
             <div class="table_box">
-              <p class="title">收资清单（技术部分）</p>
+              <p class="title">{{$t('gf_components')}}</p>
               <el-table
-                :data="tableData"
-                :span-method="objectSpanMethod"
+                :data="list1"
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" />
-                <el-table-column prop="name" :label="t('material_name')" />
-                <el-table-column prop="type"  :label="t('material_type')" v-if="!isMobile"/>
-                <el-table-column prop="use"  :label="t('material_use')" v-if="!isMobile"/>
+                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="15%"/>
+                <el-table-column prop="typeName" :label="t('Classification')" />
+                <el-table-column prop="docName"  :label="t('file_name')" v-if="!isMobile">
+                  <template #default="scope">
+                    <a :href="scope.row.link">{{scope.row.docName}}</a>
+                  </template>
+                </el-table-column>
+                <el-table-column prop="docType"  :label="t('file_type')" v-if="!isMobile"/>
               </el-table>
             </div>
             <div class="table_box add_margin">
-              <p class="title">收资清单（技术部分）</p>
+              <p class="title">{{$t('technical_support')}}</p>
               <el-table
-                :data="tableData"
-                :span-method="objectSpanMethod"
+                :data="list2"
                 border
                 style="width: 100%"
               >
-                <el-table-column prop="number" :label="t('table_number')" />
-                <el-table-column prop="name" :label="t('material_name')" />
-                <el-table-column prop="type"  :label="t('material_type')" v-if="!isMobile"/>
-                <el-table-column prop="use"  :label="t('material_use')" v-if="!isMobile"/>
+                <el-table-column prop="number" :label="t('table_number')" type="index" min-width="15%"/>
+                <el-table-column prop="typeName" :label="t('Classification')" />
+                <el-table-column prop="docName"  :label="t('file_name')" v-if="!isMobile">
+                  <template #default="scope">
+                    <a :href="scope.row.link">{{scope.row.docName}}</a>
+                  </template>
+                </el-table-column>
+                <el-table-column prop="docType"  :label="t('file_type')" v-if="!isMobile"/>
+                <template #empty>
+                  <p>{{$t('no_data')}}</p>
+                </template>
               </el-table>
             </div>
         </div>

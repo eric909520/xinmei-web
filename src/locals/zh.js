@@ -9,7 +9,7 @@ export default {
     company_address: "江苏省徐州市经济技术开发区龙湖东路6号",
     componany_controducation: "公司简介",
     all_world: "全球分布",
-    news_center: '新闻中心',
+    news_center: '企业动态',
     guangfu_power: '光伏电站',
     power_system: '储能系统',
     sun_no_limit: "太阳能创新，能量无界",
