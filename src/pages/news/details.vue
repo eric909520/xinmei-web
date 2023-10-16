@@ -61,9 +61,9 @@ const { t } = useI18n()
                 <div class="content" v-html="news.content"></div>
                 <div class="action_box">
                     <p v-if="before && before.title" @click="getDetails(before.id)">{{$t('Previous_article')}}：{{before.title}}</p>
-                    <p v-else>{{$t('None')}}</p>
+                    <!-- <p v-else>{{$t('None')}}</p> -->
                     <p v-if="after && after.title"  @click="getDetails(after.id)">{{$t('next_article')}}：{{after.title}}</p>
-                    <p v-else>{{$t('None')}}</p>
+                    <!-- <p v-else>{{$t('None')}}</p> -->
                 </div>
             </div>
         </div>
@@ -75,9 +75,9 @@ const { t } = useI18n()
                 <div class="content" v-html="news.content"></div>
                 <div class="action_box">
                      <p v-if="before && before.title" @click="getDetails(before.id)">{{$t('Previous_article')}}：{{before.title}}</p>
-                    <p v-else>{{$t('None')}}</p>
+                    <!-- <p v-else>{{$t('None')}}</p> -->
                     <p v-if="after && after.title"  @click="getDetails(after.id)">{{$t('next_article')}}：{{after.title}}</p>
-                    <p v-else>{{$t('None')}}</p>
+                    <!-- <p v-else>{{$t('None')}}</p> -->
                 </div>
             </div>
         </div>
