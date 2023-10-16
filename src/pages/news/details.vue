@@ -30,7 +30,7 @@ const getDetails = (id)=>{
         sign:'',
         data:Encrypt(params)
     }
-    axios.post('window.global_url.base_url + /system/news/detail',signParams).then(res=>{
+    axios.post(window.global_url.base_url + '/system/news/detail',signParams).then(res=>{
         news.value = res.data.data.detail
         before.value = res.data.data.before
         after.value = res.data.data.after
