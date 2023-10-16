@@ -31,7 +31,7 @@ const getList = (type)=>{
     sign:'',
     data:Encrypt(params)
   }
-  axios.post('/system/doc/list',dataParmas).then(res=>{
+  axios.post(window.global_url.base_url + '/system/doc/list',dataParmas).then(res=>{
     if(type == 0) {
       list1.value = res.data.data
     }else {

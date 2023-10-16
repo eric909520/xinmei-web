@@ -41,7 +41,7 @@ const getList = (type)=>{
         sign:'',
         data:Encrypt(params)
     }
-    axios.post('/system/news/newsList',dataParmas).then(res=>{
+    axios.post(window.global_url.base_url + '/system/news/newsList',dataParmas).then(res=>{
         if(type == 'isMobile') {
             lists.value = lists.value.concat(res.data.data.newsList)
             pages.value.total = res.data.data.total
@@ -58,7 +58,7 @@ const currentChange =(val)=>{
 const addMore =() =>{
     if(lists.value.length < pages.value.total) {
         pages.value.pageNum = pages.value.pageNum + 1;
-        getList('isMobile') 
+        getList('isMobile')
     }
 }
 onMounted(async()=>{
@@ -91,10 +91,10 @@ onMounted(async()=>{
                     <p>{{t('load_more')}}</p>
                     <img src="@/assets/images/mobile/load_more.svg" alt="">
                 </div>
-                <el-pagination 
-                            layout="prev, pager, next" 
+                <el-pagination
+                            layout="prev, pager, next"
                             v-if="pages.total && !isMobile"
-                            :total="pages.total" 
+                            :total="pages.total"
                             :page-size="pages.pageSize"
                             v-model="pages.pageNum"
                             @current-change="currentChange"

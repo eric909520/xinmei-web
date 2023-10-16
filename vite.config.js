@@ -13,13 +13,13 @@ export default defineConfig({
     port: 7000,
     cors: true,
     // https: true,
-    proxy: {
+    /*proxy: {
       "/system": {
         target: 'https://service.sunmae.cn',
         changeOrigin: true,
         secure: false
       },
-    }
+    }*/
   },
   css: {
     // 此代码为适配移动端px2rem
