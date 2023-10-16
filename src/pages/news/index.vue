@@ -7,6 +7,7 @@ import{ElPagination} from "element-plus"
 import { useRouter } from 'vue-router'
 import axios from "axios"
 import {Encrypt,Decrypt} from "@/utils/aes.js"
+import dayjs  from "dayjs"
 const { t } = useI18n()
 const router = useRouter()
 const isMobile = inject('isMobile')
@@ -22,9 +23,12 @@ const state = reactive({
 })
 let pages = ref({
     pageNum:1,
-    pageSize:6
+    pageSize:6,
+    total:0
 })
+let lists = ref([])
 const toDetails = (item)=>{
+    localStorage.setItem('newsDetail',JSON.stringify(item))
     router.push('/news-details')
 }
 const getList = ()=>{
@@ -32,13 +36,12 @@ const getList = ()=>{
         langue:localStorage.getItem('lang') == 'zh' ? 0 : 1,
         ...pages.value
     }
-    console.log(params,"1231212")
     let dataParmas = {
         sign:'',
         data:Encrypt(params)
     }
     axios.post('/system/news/newsList',dataParmas).then(res=>{
-
+        lists.value = res.data.data
     })
 }
 onMounted(async()=>{
@@ -61,17 +64,17 @@ onMounted(async()=>{
             <div class="news_list">
                 <ul>
                     <li v-for="(item,index) in lists" :key="index" @click="toDetails(item)">
-                        <img :src="item.img" alt="" data-aos="flip-left">
+                        <img :src="item.icon" alt="" data-aos="flip-left">
                         <p class="title" data-aos="fade-up">{{item.title}}</p>
-                        <p class="content" data-aos="fade-up">{{item.content}}</p>
-                        <p class="time">{{item.time}}</p>
+                        <p class="content" data-aos="fade-up">{{item.simpleContent}}</p>
+                        <p class="time">{{dayjs(item.createTime).format('YYYY-MM-DD')}}</p>
                     </li>
                 </ul>
                 <div class="load_more" v-if="isMobile">
                     <p>{{t('load_more')}}</p>
                     <img src="@/assets/images/mobile/load_more.svg" alt="">
                 </div>
-                <el-pagination v-else layout="prev, pager, next" :total="50" />
+                <!-- <el-pagination v-else layout="prev, pager, next" :total="pages.total" :page-size="pages.pageSize" :current-page="pages.pageNum"/> -->
             </div>
         </div>
     </div>
@@ -108,7 +111,7 @@ onMounted(async()=>{
             margin: auto;
             ul {
                 display: flex;
-                justify-content: center;
+                // justify-content: center;
                 flex-wrap: wrap;
                 // gap: 25px;
                 li {
