@@ -151,5 +151,6 @@ export default {
     Previous_article: "上一篇",
     next_article: "下一篇",
     None: "",
-    no_data: '暂无数据'
+    no_data: '暂无数据',
+    copy_success:"复制成功"
 }

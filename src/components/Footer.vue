@@ -32,7 +32,7 @@
                     </ul>
                 </div>
             </div>
-            <p class="support">{{t('support')}}</p>
+            <a class="support" @click="copy('https://leslieyeung@snowball-tech.com')">{{t('support')}}</a>
             <div class="info">
                 <p>sunmae © {{new Date().getFullYear()}} </p>
                 <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
@@ -77,11 +77,11 @@
                 </div>
             </div>
             <div class="bottom">
-                <p>{{t('support')}}</p>
+                <a class="support" @click="copy('https://leslieyeung@snowball-tech.com')">{{t('support')}}</a>
                 <div class="info">
                     <p>sunmae © {{new Date().getFullYear()}} </p>
                     <a href="https://beian.miit.gov.cn" target="_Blank">苏ICP备2023032182号-1</a>
-                    <a href="https://beian.mps.gov.cn/#/query/webSearch">苏公网安备32039102000488号</a>
+                    <a href="https://beian.mps.gov.cn/#/query/webSearch" target="_Blank">苏公网安备32039102000488号</a>
                 </div>
             </div>
         </div>
@@ -94,6 +94,8 @@ import location from "@/assets/images/pc/location.svg"
 import phone from "@/assets/images/pc/phone.svg"
 import mail from "@/assets/images/pc/mail.svg"
 import { useRouter } from "vue-router";
+import { copyDomText } from "@/utils/copy.js"
+import { ElMessage } from 'element-plus'
 const { t } = useI18n()
 const { locale: i18nLanguage } = useI18n()
 const isMobile = inject('isMobile')
@@ -129,6 +131,10 @@ const toUrl = (url)=>{
      router.push(url)
 }
 console.log(i18nLanguage.value,"123")
+const copy = (str)=>{
+    copyDomText(str);
+    ElMessage.success(t('copy_success'))
+}
 </script>
 <style lang="scss" scoped>
 .big_box {
@@ -255,6 +261,11 @@ console.log(i18nLanguage.value,"123")
                     color: #fff;
                 }
             }
+            .support {
+                color:#fff;
+                cursor: pointer;
+            }
+            
         }
     }
     .m_container_box {

@@ -149,5 +149,6 @@ export default {
     Previous_article: "Previous Article",
     next_article: "Next Article",
     None: "",
-    no_data: 'No Data'
+    no_data: 'No Data',
+    copy_success:"Copy Success"
 }
