@@ -150,5 +150,5 @@ export default {
     next_article: "Next Article",
     None: "",
     no_data: 'No Data',
-    copy_success:"Copy Success"
+    copy_success:"Email Successfully Copied"
 }

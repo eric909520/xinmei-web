@@ -152,5 +152,5 @@ export default {
     next_article: "下一篇",
     None: "",
     no_data: '暂无数据',
-    copy_success:"复制成功"
+    copy_success:"邮箱复制成功"
 }
