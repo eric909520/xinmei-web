@@ -103,7 +103,7 @@ export default {
     sys_authority_content1: "IEC61701,IEC62716, IEC60068",
     sys_authority_content2: "IS09001: 2015: Quality Management System IS014001: 2015: Environmental Management System",
     sys_authority_content3: "IS045001: 2018: Occupational Health and Safety Management System",
-    download_desc: "You can find documentation on the technical and credit sections of the collection list for more information",
+    download_desc: "SunMae Launches BIPV Solution",
     concact_desc: "You can contact SunMae Photovoltaics through the following methods",
     table_number: "Number",
     material_name: "Material name",
@@ -150,5 +150,5 @@ export default {
     next_article: "Next Article",
     None: "",
     no_data: 'No Data',
-    copy_success:"Email Successfully Copied"
+    copy_success: "Email Successfully Copied"
 }

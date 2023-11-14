@@ -103,7 +103,7 @@ export default {
     sys_authority_content1: "IEC61701,IEC62716, IEC60068",
     sys_authority_content2: "IS09001: 2015: 质量管理体系 IS014001: 2015: 环境管理体系",
     sys_authority_content3: "IS045001: 2018: 职业健康和安全管理系统",
-    download_desc: "您可以找到关于收资清单技术部分和资信部分等文档，以便了解更多信息",
+    download_desc: "鑫美公司推出BIPV方案",
     concact_desc: "您可以通过以下方式与鑫美光伏取得联系",
     table_number: "序号",
     material_name: "材料名称",
@@ -152,5 +152,5 @@ export default {
     next_article: "下一篇",
     None: "",
     no_data: '暂无数据',
-    copy_success:"邮箱复制成功"
+    copy_success: "邮箱复制成功"
 }

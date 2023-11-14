@@ -90,6 +90,16 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
                     <p class="content" data-aos="fade-up">{{t('download_desc')}}</p>
                 </div>
             </div>
+            <div class="video_box">
+              <video
+                  src="../../assets/download.mp4"
+                  width="100%"
+                  muted
+                  autoplay
+                  loop
+                  controls
+              ></video>
+            </div>
         </div>
         <div class="section section1">
             <div class="table_box">
@@ -172,11 +182,26 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
         }
       }
       .section0 {
-         background: url("../../assets/images/pc/download.png") no-repeat center;
+        width: 100%;
+        //  background: url("../../assets/images/pc/download.png") no-repeat center;
          background-size: 100% 100%;
          justify-content: flex-start;
-         padding-top: 120px;
+         padding-top: 70px;
          box-sizing: border-box;
+         position: relative;
+         .container {
+          position: absolute;
+          top: 120px;
+          left: 50%;
+          transform: translateX(-50%);
+         }
+         .video_box {
+          width: 100%;
+          video {
+            width: 100%;
+            object-fit: fill;
+          }
+         }
       }
       .section1 {
         padding-top: 50px;
