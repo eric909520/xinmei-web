@@ -86,7 +86,7 @@ watch(route, (newValue, oldValue) => {
 </script>
 
 <template>
-  <div :class="isMobile ? 'big_box':'big_box pc_big_box'" :style="changeHeader ? 'background:#F1F3F4':''">
+  <div :class="isMobile ? 'big_box':'big_box pc_big_box'" :style="isMobile ? 'background:rgba(0,0,0,0.5)':''">
     <div v-if="isMobile" class="m_container_box">
         <div class="left" @click="router.push('/')">
             <img src="@/assets/images/mobile/logo_top.png" alt="" v-if="changeHeader">

@@ -190,10 +190,10 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
          box-sizing: border-box;
          position: relative;
          .container {
-          position: absolute;
-          top: 120px;
-          left: 50%;
-          transform: translateX(-50%);
+            position: absolute;
+            top: 120px;
+            left: 50%;
+            transform: translateX(-50%);
          }
          .video_box {
           width: 100%;
@@ -246,8 +246,35 @@ const objectSpanMethod=({ row, column, rowIndex, columnIndex })=> {
       }
     }
     .section0 {
-      background: url("../../assets/images/mobile/download.png") no-repeat center;
-      background-size: cover;
+      // background: url("../../assets/images/mobile/download.png") no-repeat center;
+      // background-size: cover;
+      height: auto !important;
+      .container {
+            // position: absolute;
+            // top: 70px;
+            // left: 50%;
+            // transform: translateX(-50%);
+            position: static;
+            color: #393C41;
+            width: 100%;
+            transform: translateX(0);
+            .title {
+              color: #393C41;
+              margin-bottom: 0;
+            }
+            .content {
+              color: #393C41;
+            }
+         }
+         .video_box {
+          width: 100%;
+          // position: absolute;
+          // top: 170px;
+          video {
+            width: 100%;
+            object-fit: fill;
+          }
+         }
     }
     .section1 {
       padding-top: 70px;
