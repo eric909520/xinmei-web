@@ -36,7 +36,7 @@ export default {
     Mwall: 'Megawatt',
     amount_machain: "Total installed capacity",
     company_intro: "Company Profile",
-    first_intro: "Jiangsu SunMae Photovoltaic Technology Co., Ltd. is affiliated to C&S IKE Group and was established in 2017. The company is headquartered in Xuzhou City, Jiangsu Province, the core city of the Huaihai Economic Zone. The company focuses on the global development, investment, construction and operation of photovoltaic power stations and energy storage projects Maintenance management, integrating the strong support of parent company C&S IKE Group, is committed to the construction of distributed photovoltaic power stations and energy storage, contributing to the global energy revolution and green city construction.",
+    first_intro: "Jiangsu SunMae Photovoltaic Technology Co., Ltd. was established in 2017. The company is headquartered in Xuzhou City, Jiangsu Province, the core city of the Huaihai Economic Zone. The company focuses on the global development, investment, construction and operation of photovoltaic power stations and energy storage projects Maintenance management, is committed to the construction of distributed photovoltaic power stations and energy storage, contributing to the global energy revolution and green city construction.",
     second_intro: 'Team members have accumulated more than 10 years of industry experience and master the essence of photovoltaic power stations and energy storage projects. Relying on exquisite design, efficient construction and excellent post-operation and maintenance, we ensure that each photovoltaic power station and energy storage project continues to operate efficiently. ',
     thirs_intro: "Our vision is to present efficient, safe green power to the world and create excellent returns for our partners",
     forward: "leading",
@@ -128,7 +128,7 @@ export default {
     confirm: "confirm",
     cancel: "cancel",
     explo_road: "Development Path",
-    road1: "C & S IKE Group invests in Jiangsu SunMae Photovoltaic Technology Co., Ltd.",
+    road1: "Jiangsu SunMae Photovoltaic Technology Co., Ltd. formally established",
     road2: "Signed a dual power supply renovation project for seismic station monitoring with the Tianjin Seismological Bureau to realize the complementarity of mains power and photovoltaic power generation monitored by the seismic station and ensure the normal operation of the seismic station monitoring",
     road3: "Signed a 20MW power station supporting contract with CNNC (Nanjing) Energy Development Company, and the company started large-scale ground power station business",
     road4: "Achieved photovoltaic product supply cooperation with China Electronics (India) New Energy Co., Ltd. to provide supporting products for 23MW power stations",
@@ -150,5 +150,6 @@ export default {
     next_article: "Next Article",
     None: "",
     no_data: 'No Data',
-    copy_success:"Email Successfully Copied"
+    copy_success: "Email Successfully Copied",
+    foreign_company: "Overseas Subsidiary"
 }
