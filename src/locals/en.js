@@ -49,7 +49,7 @@ export default {
     fast: "fast",
     recall_service: "Response Service",
     global_map: "Global layout",
-    blobal_details: 'Jiangsu SunMae Photovoltaic Technology Co., Ltd.has strong strength.Relying on the strong capital and technical advantages of C & S IKE Group Company.The business covers more than 30 countries and regions, among which the company has established companies in Greece, Europe, Shanghai, Xuzhou, Hefei and Tianjin, China. ',
+    blobal_details: 'Jiangsu SunMae Photovoltaic Technology Co., Ltd.has strong strength.The business covers more than 30 countries and regions, among which the company has established companies in Greece, Europe, Shanghai, Xuzhou, Hefei and Tianjin, China. ',
     partener: "Partner",
     news_desc: "The latest developments or news officially released by SunMae, providing you with first-hand information about SunMae Photovoltaics",
     investment_value: "investment value",
