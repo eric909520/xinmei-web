@@ -49,7 +49,7 @@ export default {
     fast: "fast",
     recall_service: "Response Service",
     global_map: "Global layout",
-    blobal_details: 'Jiangsu SunMae Photovoltaic Technology Co., Ltd., with strong financial and technological advantages, operates in more than 30 countries and regions, including Greece, Shanghai, Xuzhou, Hefei, and Tianjin in China.',
+    blobal_details: 'Jiangsu Xinmei Photovoltaic Technology Co., Ltd. relies on its strong financial and technical advantages to operate in more than 30 countries and regions. The company has established companies in Greece in Europe, Shanghai, Xuzhou, Hefei and Tianjin in China.',
     partener: "Partner",
     news_desc: "The latest developments or news officially released by SunMae, providing you with first-hand information about SunMae Photovoltaics",
     investment_value: "investment value",
