@@ -21,7 +21,7 @@ onMounted(()=>{
 })
 const companyList = computed(()=>[
   {company:t('main_company'),img:companyImg1,name:t('main_company_name'),address:t('main_company_address'),mail:"contact@sunmae.cn",phone:'+86 516 83006977'},
-  {company:t('foreign_company'),img:companyImg2,name:t('other_company1_name'),address:t('other_company1_address'),mail:"tinaaoli53@gmail.com",phone:'+30 6982362448'},
+  {company:t('foreign_company'),img:companyImg2,name:t('other_company1_name'),address:t('other_company1_address'),mail:"tinaaoli53@gmail.com",phone:'+30 6988005555'},
   {company:t('other_company2'),img:companyImg3,name:t('other_company2_name'),address:t('other_company2_address'),mail:"contact@sunmae.cn"},
   {company:t('other_company3'),img:companyImg3,name:t('other_company3_name'),address:t('other_company3_address'),mail:"contact@sunmae.cn"}
 ])
